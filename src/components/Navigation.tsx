@@ -10,17 +10,20 @@ const Navigation = () => {
     { 
       label: 'Editorial Board', 
       href: '#editorial',
-      icon: <Users className="w-4 h-4" />
+      hasDropdown: true
     },
     { 
       label: 'Current Issues', 
-      href: '#current',
-      icon: <FileText className="w-4 h-4" />
+      href: '#current'
     },
     { 
       label: 'Archives', 
-      href: '#archives',
-      icon: <Archive className="w-4 h-4" />
+      href: '#archives'
+    },
+    { 
+      label: 'Special Issues', 
+      href: '#special',
+      hasDropdown: true
     },
     { 
       label: 'For Authors', 
@@ -28,17 +31,16 @@ const Navigation = () => {
       hasDropdown: true
     },
     { 
-      label: 'Contact', 
-      href: '#contact',
-      icon: <Mail className="w-4 h-4" />
+      label: 'Contact us', 
+      href: '#contact'
     }
   ];
 
   return (
     <>
       {/* News Banner */}
-      <div className="bg-secondary text-secondary-foreground py-2 px-4 text-center text-sm font-medium">
-        📄 Call For Paper Volume IJDST Invites Paper From Various Scientific Research Fields
+      <div className="bg-orange-500 text-white py-2 px-4 text-center text-sm font-medium">
+        📢 News Update: Call For Paper Volume IJDST Invites Paper From Various Scientific Research management, medical, Science, Engineering, Arts..
       </div>
 
       {/* Main Navigation */}
@@ -53,12 +55,12 @@ const Navigation = () => {
                   <FileText className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div className="ml-3 hidden sm:block">
-                  <div className="text-lg font-bold text-primary">IJDST</div>
-                  <div className="text-xs text-muted-foreground">International Journal for Development of Science & Technology</div>
+                  <div className="text-lg font-bold text-primary">International Journal For</div>
+                  <div className="text-lg font-bold text-primary">Development Of Science & Technology</div>
                 </div>
               </div>
-              <div className="hidden lg:block text-sm text-muted-foreground">
-                ISSN: 2456-8503
+              <div className="hidden lg:block text-right">
+                <div className="text-sm font-semibold text-primary">ISSN:2456-8503</div>
               </div>
             </div>
 
@@ -69,9 +71,8 @@ const Navigation = () => {
                   <div key={index} className="relative group">
                     <a
                       href={item.href}
-                      className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-foreground hover:text-primary hover:bg-accent/50 transition-all duration-200 group"
+                      className="flex items-center px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-all duration-200"
                     >
-                      {item.icon && <span className="mr-2">{item.icon}</span>}
                       {item.label}
                       {item.hasDropdown && <ChevronDown className="ml-1 w-3 h-3" />}
                     </a>
@@ -82,10 +83,10 @@ const Navigation = () => {
 
             {/* Action Buttons */}
             <div className="hidden md:flex items-center space-x-3">
-              <Button variant="outline" size="sm" className="text-sm">
+              <Button variant="default" size="sm" className="bg-blue-800 hover:bg-blue-900 text-white">
                 Online Submission
               </Button>
-              <Button variant="secondary" size="sm" className="text-sm">
+              <Button variant="outline" size="sm" className="text-orange-500 border-orange-500 hover:bg-orange-50">
                 Join as Board Member
               </Button>
             </div>
@@ -111,18 +112,17 @@ const Navigation = () => {
                 <a
                   key={index}
                   href={item.href}
-                  className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-foreground hover:text-primary hover:bg-accent"
+                  className="flex items-center px-3 py-2 text-sm font-medium text-foreground hover:text-primary"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.icon && <span className="mr-2">{item.icon}</span>}
                   {item.label}
                 </a>
               ))}
               <div className="pt-3 space-y-2">
-                <Button variant="outline" size="sm" className="w-full">
+                <Button variant="default" size="sm" className="w-full bg-blue-800 hover:bg-blue-900 text-white">
                   Online Submission
                 </Button>
-                <Button variant="secondary" size="sm" className="w-full">
+                <Button variant="outline" size="sm" className="w-full text-orange-500 border-orange-500 hover:bg-orange-50">
                   Join as Board Member
                 </Button>
               </div>
