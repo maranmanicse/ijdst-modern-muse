@@ -14,7 +14,7 @@ const Navigation = () => {
     },
     { 
       label: 'Current Issues', 
-      href: '#current'
+      href: '/current-issue'
     },
     { 
       label: 'Archives', 
