@@ -18,7 +18,7 @@ const Navigation = () => {
     },
     { 
       label: 'Archives', 
-      href: '#archives'
+      href: '/archive'
     },
     { 
       label: 'Special Issues', 
