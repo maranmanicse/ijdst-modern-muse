@@ -83,7 +83,12 @@ const Navigation = () => {
 
             {/* Action Buttons */}
             <div className="hidden md:flex items-center space-x-3">
-              <Button variant="default" size="sm" className="bg-blue-800 hover:bg-blue-900 text-white">
+              <Button 
+                variant="default" 
+                size="sm" 
+                className="bg-blue-800 hover:bg-blue-900 text-white"
+                onClick={() => window.location.href = '/submission'}
+              >
                 Online Submission
               </Button>
               <Button variant="outline" size="sm" className="text-orange-500 border-orange-500 hover:bg-orange-50">
@@ -119,7 +124,12 @@ const Navigation = () => {
                 </a>
               ))}
               <div className="pt-3 space-y-2">
-                <Button variant="default" size="sm" className="w-full bg-blue-800 hover:bg-blue-900 text-white">
+                <Button 
+                  variant="default" 
+                  size="sm" 
+                  className="w-full bg-blue-800 hover:bg-blue-900 text-white"
+                  onClick={() => window.location.href = '/submission'}
+                >
                   Online Submission
                 </Button>
                 <Button variant="outline" size="sm" className="w-full text-orange-500 border-orange-500 hover:bg-orange-50">
