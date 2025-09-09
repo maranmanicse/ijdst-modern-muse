@@ -9,8 +9,7 @@ const Navigation = () => {
     { label: 'Home', href: '#home' },
     { 
       label: 'Editorial Board', 
-      href: '#editorial',
-      hasDropdown: true
+      href: '/editorial-board'
     },
     { 
       label: 'Current Issues', 

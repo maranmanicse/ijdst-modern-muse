@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import CurrentIssue from "./pages/CurrentIssue";
 import Archive from "./pages/Archive";
 import OnlineSubmission from "./pages/OnlineSubmission";
+import EditorialBoard from "./pages/EditorialBoard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/current-issue" element={<CurrentIssue />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/submission" element={<OnlineSubmission />} />
+          <Route path="/editorial-board" element={<EditorialBoard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
