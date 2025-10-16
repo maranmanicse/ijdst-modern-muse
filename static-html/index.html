@@ -55,13 +55,39 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-1">
-                        <a href="index.html" class="px-3 py-2 text-sm font-medium text-blue-900 hover:text-blue-600">Home</a>
-                        <a href="editorial-board.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Editorial Board</a>
-                        <a href="current-issue.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Current Issues</a>
-                        <a href="archive.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Archives</a>
-                        <a href="#special" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Special Issues</a>
-                        <a href="#authors" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">For Authors</a>
-                        <a href="#contact" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Contact us</a>
+                        <a href="index.html" class="px-3 py-2 text-sm font-medium text-blue-900 hover:text-blue-600 transition-all duration-200">Home</a>
+                        <a href="editorial-board.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-200">Editorial Board</a>
+                        <a href="current-issue.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-200">Current Issues</a>
+                        <a href="archive.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-200">Archives</a>
+                        
+                        <!-- Special Issues Dropdown -->
+                        <div class="relative inline-block group">
+                            <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-200">
+                                Special Issues
+                                <svg class="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="#call-for-papers" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Call for Papers</a>
+                                <a href="#upcoming-issues" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Upcoming Special Issues</a>
+                                <a href="#published-issues" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Published Special Issues</a>
+                            </div>
+                        </div>
+
+                        <!-- For Authors Dropdown -->
+                        <div class="relative inline-block group">
+                            <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-200">
+                                For Authors
+                                <svg class="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="submission.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Submit Manuscript</a>
+                                <a href="#guidelines" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Author Guidelines</a>
+                                <a href="#template" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Paper Template</a>
+                                <a href="#copyright" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Copyright Policy</a>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-200">Contact us</a>
                     </div>
                 </div>
 
