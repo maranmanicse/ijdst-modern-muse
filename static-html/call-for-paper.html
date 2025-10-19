@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call For Paper - International Journal For Development Of Science & Technology (IJDST)</title>
+    <meta name="description" content="Submit your research paper to IJDST. We welcome original research in Science, Technology, Engineering, Medical, Management, and Arts.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+        }
+        .whatsapp-fixed {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .news-banner {
+            display: none;
+        }
+        .news-banner.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- News Banner -->
+    <div id="news-banner" class="news-banner bg-orange-500 text-white py-2 px-4 text-sm font-medium">
+        <div class="max-w-7xl mx-auto text-center">
+            <span>📢 News Update: Call For Paper Volume IJDST Invites Paper From Various Scientific Research management, medical, Science, Engineering, Arts..</span>
+        </div>
+    </div>
+
+    <!-- Fixed WhatsApp Button -->
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" rel="noopener noreferrer" class="whatsapp-fixed flex items-center gap-2 px-4 py-3 bg-green-500 hover:bg-green-600 text-white rounded-full transition-all">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="text-sm font-semibold">WhatsApp</span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <img src="https://via.placeholder.com/50" alt="IJDST Logo" class="h-12 w-12 rounded-lg">
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">IJDST</h1>
+                        <p class="text-xs text-gray-600">ISSN: 2349-3186</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="editorial-board.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Editorial Board</a>
+                    <a href="current-issue.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Current Issue</a>
+                    <a href="archive.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Archive</a>
+                    <a href="call-for-paper.html" class="text-blue-600 font-semibold">Call For Paper</a>
+                    <a href="submission.html" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">Submit Paper</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-blue-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+                <a href="editorial-board.html" class="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Editorial Board</a>
+                <a href="current-issue.html" class="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Current Issue</a>
+                <a href="archive.html" class="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Archive</a>
+                <a href="call-for-paper.html" class="block text-blue-600 font-semibold">Call For Paper</a>
+                <a href="submission.html" class="block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-center">Submit Paper</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Call For Paper</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                Submit your original research to IJDST. We welcome contributions from researchers worldwide in various fields of science and technology.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Important Dates -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Important Dates</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 bg-blue-50 rounded-lg">
+                        <div class="text-blue-600 font-semibold text-sm mb-2">Paper Submission</div>
+                        <div class="text-2xl font-bold text-gray-900">Rolling Basis</div>
+                        <div class="text-sm text-gray-600 mt-2">Submit anytime</div>
+                    </div>
+                    <div class="text-center p-6 bg-green-50 rounded-lg">
+                        <div class="text-green-600 font-semibold text-sm mb-2">Review Process</div>
+                        <div class="text-2xl font-bold text-gray-900">15-20 Days</div>
+                        <div class="text-sm text-gray-600 mt-2">After submission</div>
+                    </div>
+                    <div class="text-center p-6 bg-purple-50 rounded-lg">
+                        <div class="text-purple-600 font-semibold text-sm mb-2">Publication</div>
+                        <div class="text-2xl font-bold text-gray-900">Monthly</div>
+                        <div class="text-sm text-gray-600 mt-2">Regular issues</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scope and Topics -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Scope & Topics</h2>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    IJDST invites original research papers, review articles, and case studies in the following areas:
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="text-blue-600">🔬</span>
+                            Science & Technology
+                        </h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Computer Science & Information Technology</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Electronics & Communication Engineering</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Mechanical & Civil Engineering</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Biotechnology & Life Sciences</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Environmental Science</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="text-blue-600">⚕️</span>
+                            Medical & Management
+                        </h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Medical Sciences & Healthcare</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Pharmacy & Pharmaceutical Sciences</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Management & Business Administration</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Economics & Finance</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-600 mt-1">•</span>
+                                <span>Social Sciences & Arts</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Submission Guidelines -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Submission Guidelines</h2>
+                <div class="space-y-4 text-gray-700">
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold">1</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-1">Original Research</h4>
+                            <p>All submissions must be original work not previously published or under consideration elsewhere.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold">2</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-1">Format Requirements</h4>
+                            <p>Papers should be submitted in MS Word format (.doc or .docx) following our template guidelines.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold">3</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-1">Length & Structure</h4>
+                            <p>Papers should be 6-15 pages including abstract, keywords, introduction, methodology, results, discussion, conclusion, and references.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold">4</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-1">Language</h4>
+                            <p>Papers must be written in clear, grammatically correct English.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold">5</div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-1">Plagiarism Check</h4>
+                            <p>All papers will be checked for plagiarism. Papers with more than 20% similarity will be rejected.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Process -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Review Process</h2>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">📝</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Submit</h4>
+                        <p class="text-sm text-gray-600">Submit your paper online</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">🔍</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Review</h4>
+                        <p class="text-sm text-gray-600">Peer review by experts</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">✏️</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Revise</h4>
+                        <p class="text-sm text-gray-600">Revise based on feedback</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">📚</span>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Publish</h4>
+                        <p class="text-sm text-gray-600">Published in journal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publication Charges -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Publication Charges</h2>
+                <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-6 mb-6">
+                    <p class="text-gray-700 leading-relaxed">
+                        IJDST operates on an open-access model to ensure maximum visibility and impact of published research. 
+                        Authors are required to pay publication fees upon acceptance of their manuscript.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Indian Authors</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-2">₹2,000</div>
+                        <p class="text-sm text-gray-600">Per accepted paper</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">International Authors</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-2">$50</div>
+                        <p class="text-sm text-gray-600">Per accepted paper</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-lg p-8 text-white">
+                <h2 class="text-3xl font-bold mb-4">Ready to Submit Your Research?</h2>
+                <p class="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
+                    Join researchers worldwide in advancing science and technology through IJDST
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="submission.html" class="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-semibold text-lg shadow-md">
+                        Submit Your Paper
+                    </a>
+                    <a href="mailto:editor@ijdst.com" class="px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-400 transition-colors font-semibold text-lg border-2 border-white">
+                        Contact Editor
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">IJDST</h3>
+                    <p class="text-gray-400 text-sm">International Journal For Development Of Science & Technology</p>
+                    <p class="text-gray-400 text-sm mt-2">ISSN: 2349-3186</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="current-issue.html" class="hover:text-white transition-colors">Current Issue</a></li>
+                        <li><a href="archive.html" class="hover:text-white transition-colors">Archive</a></li>
+                        <li><a href="editorial-board.html" class="hover:text-white transition-colors">Editorial Board</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">For Authors</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="call-for-paper.html" class="hover:text-white transition-colors">Call For Paper</a></li>
+                        <li><a href="submission.html" class="hover:text-white transition-colors">Submit Manuscript</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Author Guidelines</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Publication Ethics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Email: editor@ijdst.com</li>
+                        <li>Phone: +91 XXX XXX XXXX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 IJDST. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // News banner control - Set to true if news exists, false to hide
+        const hasNews = true; // Change this to false when there's no news
+        const newsBanner = document.getElementById('news-banner');
+        if (hasNews && newsBanner) {
+            newsBanner.classList.add('active');
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
