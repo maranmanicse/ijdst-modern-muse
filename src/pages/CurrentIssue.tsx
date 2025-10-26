@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -156,10 +157,12 @@ const CurrentIssue = () => {
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-2">
-                    <Button variant="outline" size="sm" className="flex items-center gap-2">
-                      <Eye className="w-4 h-4" />
-                      View
-                    </Button>
+                    <Link to={`/article/${article.id}`}>
+                      <Button variant="outline" size="sm" className="flex items-center gap-2">
+                        <Eye className="w-4 h-4" />
+                        View
+                      </Button>
+                    </Link>
                     <Button variant="default" size="sm" className="flex items-center gap-2">
                       <Download className="w-4 h-4" />
                       PDF
