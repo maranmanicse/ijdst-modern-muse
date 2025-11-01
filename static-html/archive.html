@@ -112,18 +112,104 @@
         </div>
 
         <!-- Search and Filter -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-            <div class="grid md:grid-cols-2 gap-4">
-                <input type="text" id="search-input" placeholder="Search by title, volume, or issue..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                <select id="year-filter" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                    <option value="">All Years</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                </select>
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8 border border-gray-100">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">Find Articles</h2>
+                <button onclick="resetFilters()" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    Reset
+                </button>
             </div>
-            <button onclick="resetFilters()" class="mt-4 px-4 py-2 text-sm text-blue-600 hover:text-blue-800">Reset Filters</button>
+            
+            <div class="grid md:grid-cols-3 gap-4">
+                <!-- Volume Select -->
+                <div class="relative">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <svg class="inline w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        Select Volume
+                    </label>
+                    <select id="volume-filter" class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white transition-all duration-200 appearance-none cursor-pointer hover:border-blue-300">
+                        <option value="">All Volumes</option>
+                        <option value="12">Volume 12</option>
+                        <option value="11">Volume 11</option>
+                        <option value="10">Volume 10</option>
+                    </select>
+                    <svg class="absolute right-3 top-[42px] w-5 h-5 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+
+                <!-- Issue Select -->
+                <div class="relative">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <svg class="inline w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                        Select Issue
+                    </label>
+                    <select id="issue-filter" class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white transition-all duration-200 appearance-none cursor-pointer hover:border-blue-300">
+                        <option value="">All Issues</option>
+                        <option value="1">Issue 1</option>
+                        <option value="2">Issue 2</option>
+                        <option value="3">Issue 3</option>
+                        <option value="4">Issue 4</option>
+                        <option value="5">Issue 5</option>
+                        <option value="6">Issue 6</option>
+                        <option value="7">Issue 7</option>
+                        <option value="8">Issue 8</option>
+                        <option value="9">Issue 9</option>
+                        <option value="10">Issue 10</option>
+                        <option value="11">Issue 11</option>
+                        <option value="12">Issue 12</option>
+                    </select>
+                    <svg class="absolute right-3 top-[42px] w-5 h-5 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+
+                <!-- Year Select -->
+                <div class="relative">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <svg class="inline w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        Select Year
+                    </label>
+                    <select id="year-filter" class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white transition-all duration-200 appearance-none cursor-pointer hover:border-blue-300">
+                        <option value="">All Years</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                    <svg class="absolute right-3 top-[42px] w-5 h-5 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Search Input -->
+            <div class="mt-6 relative">
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                    <svg class="inline w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    Search Articles
+                </label>
+                <input type="text" id="search-input" placeholder="Search by title, keywords, or authors..." class="w-full pl-12 pr-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white transition-all duration-200 hover:border-blue-300">
+                <svg class="absolute left-4 top-[42px] w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+
+            <!-- Results Counter -->
+            <div class="mt-4 text-sm text-gray-600">
+                <span id="results-count" class="font-medium"></span>
+            </div>
         </div>
 
         <!-- Archive List -->
@@ -187,6 +273,8 @@
 
         function filterArchive() {
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const volumeFilter = document.getElementById('volume-filter').value;
+            const issueFilter = document.getElementById('issue-filter').value;
             const yearFilter = document.getElementById('year-filter').value;
             
             let filtered = archiveData;
@@ -199,29 +287,59 @@
                 );
             }
             
+            if (volumeFilter) {
+                filtered = filtered.filter(item => item.volume.toString() === volumeFilter);
+            }
+            
+            if (issueFilter) {
+                filtered = filtered.filter(item => item.issue.toString() === issueFilter);
+            }
+            
             if (yearFilter) {
                 filtered = filtered.filter(item => item.year.toString() === yearFilter);
             }
             
+            updateResultsCount(filtered.length, archiveData.length);
             renderArchive(filtered);
+        }
+
+        function updateResultsCount(filtered, total) {
+            const counter = document.getElementById('results-count');
+            if (filtered === total) {
+                counter.textContent = `Showing all ${total} issues`;
+            } else {
+                counter.textContent = `Showing ${filtered} of ${total} issues`;
+            }
         }
 
         function resetFilters() {
             document.getElementById('search-input').value = '';
+            document.getElementById('volume-filter').value = '';
+            document.getElementById('issue-filter').value = '';
             document.getElementById('year-filter').value = '';
+            updateResultsCount(archiveData.length, archiveData.length);
             renderArchive(archiveData);
         }
 
         document.getElementById('search-input').addEventListener('input', filterArchive);
+        document.getElementById('volume-filter').addEventListener('change', filterArchive);
+        document.getElementById('issue-filter').addEventListener('change', filterArchive);
         document.getElementById('year-filter').addEventListener('change', filterArchive);
 
         // Initial render
+        updateResultsCount(archiveData.length, archiveData.length);
         renderArchive(archiveData);
 
         // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
         });
     </script>
 </body>
