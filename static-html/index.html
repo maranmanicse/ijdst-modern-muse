@@ -350,17 +350,24 @@
     </footer>
 
     <script>
-        // News banner control - Set to true if news exists, false to hide
-        const hasNews = true; // Change this to false when there's no news
-        const newsBanner = document.getElementById('news-banner');
-        if (hasNews && newsBanner) {
-            newsBanner.classList.add('active');
-        }
+        // Ensure DOM is fully loaded before accessing elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // News banner control - Set to true if news exists, false to hide
+            const hasNews = true; // Change this to false when there's no news
+            const newsBanner = document.getElementById('news-banner');
+            if (hasNews && newsBanner) {
+                newsBanner.classList.add('active');
+            }
 
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
         });
     </script>
 </body>
