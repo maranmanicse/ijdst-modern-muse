@@ -146,10 +146,40 @@
                 <a href="editorial-board.html" class="block px-3 py-2 text-sm font-medium text-gray-700">Editorial Board</a>
                 <a href="current-issue.html" class="block px-3 py-2 text-sm font-medium text-gray-700">Current Issues</a>
                 <a href="archive.html" class="block px-3 py-2 text-sm font-medium text-gray-700">Archives</a>
-                <a href="#special" class="block px-3 py-2 text-sm font-medium text-gray-700">Special Issues</a>
-                <a href="#authors" class="block px-3 py-2 text-sm font-medium text-gray-700">For Authors</a>
-                <a href="#contact" class="block px-3 py-2 text-sm font-medium text-gray-700">Contact us</a>
-                <div class="pt-3 space-y-2">
+                
+                <!-- Special Issues Dropdown -->
+                <div class="border-t border-gray-100 pt-1">
+                    <button class="mobile-dropdown-btn w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700" data-target="special-issues-menu">
+                        <span>Special Issues</span>
+                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="special-issues-menu" class="hidden pl-6 space-y-1">
+                        <a href="#call-for-papers" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Call for Papers</a>
+                        <a href="#upcoming-issues" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Upcoming Special Issues</a>
+                        <a href="#published-issues" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Published Special Issues</a>
+                    </div>
+                </div>
+                
+                <!-- For Authors Dropdown -->
+                <div class="border-t border-gray-100 pt-1">
+                    <button class="mobile-dropdown-btn w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700" data-target="authors-menu">
+                        <span>For Authors</span>
+                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="authors-menu" class="hidden pl-6 space-y-1">
+                        <a href="submission.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Submit Manuscript</a>
+                        <a href="#guidelines" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Author Guidelines</a>
+                        <a href="#template" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Paper Template</a>
+                        <a href="#copyright" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Copyright Policy</a>
+                    </div>
+                </div>
+                
+                <a href="contact.html" class="block px-3 py-2 text-sm font-medium text-gray-700 border-t border-gray-100 pt-2">Contact us</a>
+                <div class="pt-3 space-y-2 border-t border-gray-100 mt-2">
                     <a href="submission.html" class="block w-full px-4 py-2 text-sm text-center font-medium text-white bg-blue-800 hover:bg-blue-900 rounded-md">Online Submission</a>
                     <a href="join-board.html" class="block w-full px-4 py-2 text-sm text-center font-medium text-orange-500 border border-orange-500 hover:bg-orange-50 rounded-md">Join as Board Member</a>
                 </div>
@@ -368,6 +398,21 @@
                     mobileMenu.classList.toggle('hidden');
                 });
             }
+
+            // Mobile dropdown toggles
+            const dropdownButtons = document.querySelectorAll('.mobile-dropdown-btn');
+            dropdownButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetMenu = document.getElementById(targetId);
+                    const arrow = this.querySelector('svg');
+                    
+                    if (targetMenu && arrow) {
+                        targetMenu.classList.toggle('hidden');
+                        arrow.classList.toggle('rotate-180');
+                    }
+                });
+            });
         });
     </script>
 </body>
