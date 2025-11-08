@@ -80,9 +80,59 @@
         .select2-container {
             width: 100% !important;
         }
+        
+        /* Loader Styles */
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .loader-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #e5e7eb;
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .loader-text {
+            margin-top: 16px;
+            color: #374151;
+            font-weight: 500;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Loader Overlay -->
+    <div id="loader-overlay" class="loader-overlay">
+        <div class="text-center">
+            <div class="loader"></div>
+            <div class="loader-text">Loading articles...</div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <div class="bg-orange-500 text-white py-2 px-4 text-center text-sm font-medium">
         📢 News Update: Call For Paper Volume IJDST Invites Paper From Various Scientific Research management, medical, Science, Engineering, Arts..
@@ -303,6 +353,15 @@
             { volume: 11, issue: 8, year: 2023, title: "August 2023", articles: 13, downloads: 1432 },
         ];
 
+        // Loader functions
+        function showLoader() {
+            document.getElementById('loader-overlay').classList.add('active');
+        }
+        
+        function hideLoader() {
+            document.getElementById('loader-overlay').classList.remove('active');
+        }
+
         function renderArchive(data) {
             const container = document.getElementById('archive-list');
             const noResults = document.getElementById('no-results');
@@ -334,35 +393,44 @@
         }
 
         function filterArchive() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            const volumeFilter = document.getElementById('volume-filter').value;
-            const issueFilter = document.getElementById('issue-filter').value;
-            const yearFilter = document.getElementById('year-filter').value;
+            // Show loader
+            showLoader();
             
-            let filtered = archiveData;
-            
-            if (searchTerm) {
-                filtered = filtered.filter(item => 
-                    item.title.toLowerCase().includes(searchTerm) ||
-                    item.volume.toString().includes(searchTerm) ||
-                    item.issue.toString().includes(searchTerm)
-                );
-            }
-            
-            if (volumeFilter) {
-                filtered = filtered.filter(item => item.volume.toString() === volumeFilter);
-            }
-            
-            if (issueFilter) {
-                filtered = filtered.filter(item => item.issue.toString() === issueFilter);
-            }
-            
-            if (yearFilter) {
-                filtered = filtered.filter(item => item.year.toString() === yearFilter);
-            }
-            
-            updateResultsCount(filtered.length, archiveData.length);
-            renderArchive(filtered);
+            // Simulate AJAX delay
+            setTimeout(() => {
+                const searchTerm = document.getElementById('search-input').value.toLowerCase();
+                const volumeFilter = document.getElementById('volume-filter').value;
+                const issueFilter = document.getElementById('issue-filter').value;
+                const yearFilter = document.getElementById('year-filter').value;
+                
+                let filtered = archiveData;
+                
+                if (searchTerm) {
+                    filtered = filtered.filter(item => 
+                        item.title.toLowerCase().includes(searchTerm) ||
+                        item.volume.toString().includes(searchTerm) ||
+                        item.issue.toString().includes(searchTerm)
+                    );
+                }
+                
+                if (volumeFilter) {
+                    filtered = filtered.filter(item => item.volume.toString() === volumeFilter);
+                }
+                
+                if (issueFilter) {
+                    filtered = filtered.filter(item => item.issue.toString() === issueFilter);
+                }
+                
+                if (yearFilter) {
+                    filtered = filtered.filter(item => item.year.toString() === yearFilter);
+                }
+                
+                updateResultsCount(filtered.length, archiveData.length);
+                renderArchive(filtered);
+                
+                // Hide loader
+                hideLoader();
+            }, 300); // Small delay to show loader
         }
 
         function updateResultsCount(filtered, total) {
@@ -375,12 +443,17 @@
         }
 
         function resetFilters() {
-            document.getElementById('search-input').value = '';
-            document.getElementById('volume-filter').value = '';
-            document.getElementById('issue-filter').value = '';
-            document.getElementById('year-filter').value = '';
-            updateResultsCount(archiveData.length, archiveData.length);
-            renderArchive(archiveData);
+            showLoader();
+            
+            setTimeout(() => {
+                document.getElementById('search-input').value = '';
+                document.getElementById('volume-filter').value = '';
+                document.getElementById('issue-filter').value = '';
+                document.getElementById('year-filter').value = '';
+                updateResultsCount(archiveData.length, archiveData.length);
+                renderArchive(archiveData);
+                hideLoader();
+            }, 300);
         }
 
         document.getElementById('search-input').addEventListener('input', filterArchive);
