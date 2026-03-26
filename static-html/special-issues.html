@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Issues - IJDST</title>
+    <meta name="description" content="Browse special issues of IJDST organized by year. Access curated collections of research papers on focused topics.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-primary { background: linear-gradient(135deg, #3b82f6, #1e40af); }
+        .whatsapp-fixed { position: fixed; right: 20px; bottom: 20px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .news-banner { display: none; }
+        .news-banner.active { display: block; }
+        .issue-card { transition: all 0.3s ease; }
+        .issue-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15); }
+        .year-badge { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- News Banner -->
+    <div id="news-banner" class="news-banner bg-orange-500 text-white py-2 px-4 text-sm font-medium">
+        <div class="max-w-7xl mx-auto text-center">
+            <span>📢 News Update: Call For Paper Volume IJDST Invites Paper From Various Scientific Research management, medical, Science, Engineering, Arts..</span>
+        </div>
+    </div>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" rel="noopener noreferrer" class="whatsapp-fixed flex items-center gap-2 px-4 py-3 bg-green-500 hover:bg-green-600 text-white rounded-full transition-all">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="text-sm font-semibold">WhatsApp</span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html">
+                        <div class="flex-shrink-0 flex items-center">
+                            <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center cursor-pointer">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <div class="ml-3 hidden sm:block cursor-pointer">
+                                <div class="text-4xl font-bold text-blue-900">IJDST</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="text-3xl font-semibold text-blue-900">ISSN: 2456-8503</div>
+                </div>
+                <div class="hidden md:flex items-center justify-center space-x-3 pb-3 pt-2">
+                    <a href="submission.html" class="px-6 py-2 text-sm font-medium text-white bg-blue-800 hover:bg-blue-900 rounded-md transition-colors">Online Submission</a>
+                    <a href="join-board.html" class="px-6 py-2 text-sm font-medium text-orange-500 border border-orange-500 hover:bg-orange-50 rounded-md transition-colors">Join as Board Member</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 text-gray-700 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-10 flex space-x-1 items-end justify-end">
+                    <a href="index.html" class="px-3 py-2 text-[15px] font-medium text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="editorial-board.html" class="px-3 py-2 text-[15px] font-medium text-gray-700 hover:text-blue-600">Editorial Board</a>
+                    <a href="current-issue.html" class="px-3 py-2 text-[15px] font-medium text-gray-700 hover:text-blue-600">Current Issues</a>
+                    <a href="archive.html" class="px-3 py-2 text-[15px] font-medium text-gray-700 hover:text-blue-600">Archives</a>
+                    <div class="relative inline-block group">
+                        <button class="flex items-center px-3 py-2 text-[15px] font-medium text-blue-900 hover:text-blue-600">
+                            Special Issues
+                            <svg class="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="special-issues.html" class="block px-4 py-3 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-blue-600">All Special Issues</a>
+                            <a href="call-for-paper.html" class="block px-4 py-3 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-blue-600">Call for Papers</a>
+                        </div>
+                    </div>
+                    <div class="relative inline-block group">
+                        <button class="flex items-center px-3 py-2 text-[15px] font-medium text-gray-700 hover:text-blue-600">
+                            For Authors
+                            <svg class="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="call-for-paper.html" class="block px-4 py-3 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-blue-600">Author Guidelines</a>
+                            <a href="call-for-paper.html#publication-charges" class="block px-4 py-3 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-blue-600">Publication Charges</a>
+                            <a href="call-for-paper.html#review-process" class="block px-4 py-3 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-blue-600">Review Process</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="px-3 py-2 text-[15px] font-medium text-gray-700 hover:text-blue-600">Contact us</a>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-sm font-medium text-gray-700">Home</a>
+                <a href="editorial-board.html" class="block px-3 py-2 text-sm font-medium text-gray-700">Editorial Board</a>
+                <a href="current-issue.html" class="block px-3 py-2 text-sm font-medium text-gray-700">Current Issues</a>
+                <a href="archive.html" class="block px-3 py-2 text-sm font-medium text-gray-700">Archives</a>
+                <div class="border-t border-gray-100 pt-1">
+                    <button class="mobile-dropdown-btn w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700" data-target="special-issues-menu">
+                        <span>Special Issues</span>
+                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="special-issues-menu" class="hidden pl-4 space-y-1">
+                        <a href="special-issues.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">All Special Issues</a>
+                        <a href="call-for-paper.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Call for Papers</a>
+                    </div>
+                </div>
+                <div class="border-t border-gray-100 pt-1">
+                    <button class="mobile-dropdown-btn w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700" data-target="for-authors-menu">
+                        <span>For Authors</span>
+                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="for-authors-menu" class="hidden pl-4 space-y-1">
+                        <a href="call-for-paper.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Author Guidelines</a>
+                        <a href="call-for-paper.html#publication-charges" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Publication Charges</a>
+                        <a href="call-for-paper.html#review-process" class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">Review Process</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="block px-3 py-2 text-sm font-medium text-gray-700">Contact us</a>
+                <div class="pt-3 space-y-2 border-t border-gray-100 mt-2">
+                    <a href="submission.html" class="block w-full px-4 py-2 text-sm text-center font-medium text-white bg-blue-800 hover:bg-blue-900 rounded-md">Online Submission</a>
+                    <a href="join-board.html" class="block w-full px-4 py-2 text-sm text-center font-medium text-orange-500 border border-orange-500 hover:bg-orange-50 rounded-md">Join as Board Member</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900"></div>
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <nav class="flex items-center text-sm text-blue-200 mb-6">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <span class="text-white font-medium">Special Issues</span>
+            </nav>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Special Issues</h1>
+            <p class="text-xl text-blue-100 max-w-3xl">Explore curated collections of research papers on focused topics, guest-edited by leading experts in their fields.</p>
+        </div>
+    </section>
+
+    <!-- Special Issues Listing -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- 2024 -->
+            <div class="mb-16">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="year-badge text-white text-lg font-bold px-6 py-2 rounded-full shadow-md">2024</span>
+                    <div class="flex-1 h-px bg-gray-200"></div>
+                    <span class="text-sm text-gray-500 font-medium">3 Special Issues</span>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Issue Card 1 -->
+                    <a href="special-issue-detail.html?id=si-2024-03" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <div class="h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="px-3 py-1 text-xs font-semibold bg-green-100 text-green-700 rounded-full">Open for Submission</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Artificial Intelligence in Healthcare: Emerging Trends & Applications</h3>
+                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">This special issue explores the transformative role of AI in modern healthcare, including diagnostics, drug discovery, and patient care systems.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    Dec 2024
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    8 Articles
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Issue Card 2 -->
+                    <a href="special-issue-detail.html?id=si-2024-02" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <div class="h-2 bg-gradient-to-r from-emerald-500 to-teal-600"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">Published</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Sustainable Energy Solutions for Developing Nations</h3>
+                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">Research papers focusing on renewable energy technologies, energy policy, and sustainable development practices for emerging economies.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    Aug 2024
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    12 Articles
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Issue Card 3 -->
+                    <a href="special-issue-detail.html?id=si-2024-01" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <div class="h-2 bg-gradient-to-r from-purple-500 to-pink-600"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">Published</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Cybersecurity in the Age of IoT</h3>
+                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">Addressing security challenges in Internet of Things ecosystems, covering network security, data privacy, and threat mitigation strategies.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    Mar 2024
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    10 Articles
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="mb-16">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="year-badge text-white text-lg font-bold px-6 py-2 rounded-full shadow-md">2023</span>
+                    <div class="flex-1 h-px bg-gray-200"></div>
+                    <span class="text-sm text-gray-500 font-medium">2 Special Issues</span>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="special-issue-detail.html?id=si-2023-02" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <div class="h-2 bg-gradient-to-r from-amber-500 to-orange-600"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">Published</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Machine Learning in Environmental Science</h3>
+                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">Applications of machine learning techniques in climate modeling, pollution monitoring, and environmental conservation efforts.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    Oct 2023
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    9 Articles
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="special-issue-detail.html?id=si-2023-01" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <div class="h-2 bg-gradient-to-r from-rose-500 to-red-600"></div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">Published</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Blockchain Technology in Supply Chain Management</h3>
+                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">Exploring blockchain-based solutions for transparency, traceability, and efficiency in global supply chain operations.</p>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    Apr 2023
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    7 Articles
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">IJDST</h3>
+                    <p class="text-sm">International Journal for Development of Science & Technology</p>
+                    <p class="text-sm mt-2">ISSN: 2456-8503</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white">Home</a></li>
+                        <li><a href="current-issue.html" class="hover:text-white">Current Issue</a></li>
+                        <li><a href="archive.html" class="hover:text-white">Archives</a></li>
+                        <li><a href="editorial-board.html" class="hover:text-white">Editorial Board</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">For Authors</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="submission.html" class="hover:text-white">Submit Paper</a></li>
+                        <li><a href="call-for-paper.html" class="hover:text-white">Author Guidelines</a></li>
+                        <li><a href="call-for-paper.html#review-process" class="hover:text-white">Review Process</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>Email: info@ijdst.com</li>
+                        <li>Phone: +1 234 567 8900</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2024 IJDST. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hasNews = true;
+            const newsBanner = document.getElementById('news-banner');
+            if (hasNews && newsBanner) newsBanner.classList.add('active');
+
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() { mobileMenu.classList.toggle('hidden'); });
+            }
+
+            document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const target = document.getElementById(this.getAttribute('data-target'));
+                    const arrow = this.querySelector('svg');
+                    if (target && arrow) { target.classList.toggle('hidden'); arrow.classList.toggle('rotate-180'); }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
