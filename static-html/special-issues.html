@@ -148,138 +148,61 @@
         </div>
     </section>
 
-    <!-- Special Issues Listing -->
-    <section class="py-16">
+    <!-- Filter Section -->
+    <section class="py-8 bg-white border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <!-- 2024 -->
-            <div class="mb-16">
-                <div class="flex items-center gap-4 mb-8">
-                    <span class="year-badge text-white text-lg font-bold px-6 py-2 rounded-full shadow-md">2024</span>
-                    <div class="flex-1 h-px bg-gray-200"></div>
-                    <span class="text-sm text-gray-500 font-medium">3 Special Issues</span>
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                <div class="flex flex-col md:flex-row gap-4 items-end">
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Search</label>
+                        <div class="relative">
+                            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            <input type="text" id="filter-search" placeholder="Search by title or topic..." class="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-44">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Year</label>
+                        <select id="filter-year" class="w-full py-2.5 px-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white">
+                            <option value="all">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                    <div class="w-full md:w-44">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                        <select id="filter-status" class="w-full py-2.5 px-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white">
+                            <option value="all">All Status</option>
+                            <option value="open">Open for Submission</option>
+                            <option value="published">Published</option>
+                        </select>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="btn-filter" class="px-5 py-2.5 bg-blue-800 text-white text-sm font-medium rounded-lg hover:bg-blue-900 transition-colors flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                            Filter
+                        </button>
+                        <button id="btn-reset" class="px-5 py-2.5 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                            Reset
+                        </button>
+                    </div>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Issue Card 1 -->
-                    <a href="special-issue-detail.html?id=si-2024-03" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="px-3 py-1 text-xs font-semibold bg-green-100 text-green-700 rounded-full">Open for Submission</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Artificial Intelligence in Healthcare: Emerging Trends & Applications</h3>
-                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">This special issue explores the transformative role of AI in modern healthcare, including diagnostics, drug discovery, and patient care systems.</p>
-                            <div class="flex items-center justify-between text-sm text-gray-500">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                    Dec 2024
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                    8 Articles
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Issue Card 2 -->
-                    <a href="special-issue-detail.html?id=si-2024-02" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="h-2 bg-gradient-to-r from-emerald-500 to-teal-600"></div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">Published</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Sustainable Energy Solutions for Developing Nations</h3>
-                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">Research papers focusing on renewable energy technologies, energy policy, and sustainable development practices for emerging economies.</p>
-                            <div class="flex items-center justify-between text-sm text-gray-500">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                    Aug 2024
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                    12 Articles
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Issue Card 3 -->
-                    <a href="special-issue-detail.html?id=si-2024-01" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="h-2 bg-gradient-to-r from-purple-500 to-pink-600"></div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">Published</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Cybersecurity in the Age of IoT</h3>
-                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">Addressing security challenges in Internet of Things ecosystems, covering network security, data privacy, and threat mitigation strategies.</p>
-                            <div class="flex items-center justify-between text-sm text-gray-500">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                    Mar 2024
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                    10 Articles
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <div class="mt-3 text-sm text-gray-500" id="filter-count">Showing 5 of 5 special issues</div>
             </div>
+        </div>
+    </section>
 
-            <!-- 2023 -->
-            <div class="mb-16">
-                <div class="flex items-center gap-4 mb-8">
-                    <span class="year-badge text-white text-lg font-bold px-6 py-2 rounded-full shadow-md">2023</span>
-                    <div class="flex-1 h-px bg-gray-200"></div>
-                    <span class="text-sm text-gray-500 font-medium">2 Special Issues</span>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="special-issue-detail.html?id=si-2023-02" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="h-2 bg-gradient-to-r from-amber-500 to-orange-600"></div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">Published</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Machine Learning in Environmental Science</h3>
-                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">Applications of machine learning techniques in climate modeling, pollution monitoring, and environmental conservation efforts.</p>
-                            <div class="flex items-center justify-between text-sm text-gray-500">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                    Oct 2023
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                    9 Articles
-                                </span>
-                            </div>
-                        </div>
-                    </a>
+    <!-- Special Issues Listing -->
+    <section class="py-16" id="issues-listing">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="issues-container">
+            <!-- Issues will be rendered by JS -->
+        </div>
 
-                    <a href="special-issue-detail.html?id=si-2023-01" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="h-2 bg-gradient-to-r from-rose-500 to-red-600"></div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">Published</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Blockchain Technology in Supply Chain Management</h3>
-                            <p class="text-sm text-gray-500 mb-4 line-clamp-3">Exploring blockchain-based solutions for transparency, traceability, and efficiency in global supply chain operations.</p>
-                            <div class="flex items-center justify-between text-sm text-gray-500">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                    Apr 2023
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                    7 Articles
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+        <!-- Pagination -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4" id="pagination-wrapper">
+                <div class="text-sm text-gray-500" id="page-info">Page 1 of 1</div>
+                <div class="flex items-center gap-1" id="pagination-controls"></div>
             </div>
-
         </div>
     </section>
 
@@ -324,6 +247,101 @@
     </footer>
 
     <script>
+        const allIssues = [
+            { id: 'si-2024-03', year: 2024, status: 'open', title: 'Artificial Intelligence in Healthcare: Emerging Trends & Applications', desc: 'This special issue explores the transformative role of AI in modern healthcare, including diagnostics, drug discovery, and patient care systems.', date: 'Dec 2024', articles: 8, gradient: 'from-blue-500 to-indigo-600' },
+            { id: 'si-2024-02', year: 2024, status: 'published', title: 'Sustainable Energy Solutions for Developing Nations', desc: 'Research papers focusing on renewable energy technologies, energy policy, and sustainable development practices for emerging economies.', date: 'Aug 2024', articles: 12, gradient: 'from-emerald-500 to-teal-600' },
+            { id: 'si-2024-01', year: 2024, status: 'published', title: 'Cybersecurity in the Age of IoT', desc: 'Addressing security challenges in Internet of Things ecosystems, covering network security, data privacy, and threat mitigation strategies.', date: 'Mar 2024', articles: 10, gradient: 'from-purple-500 to-pink-600' },
+            { id: 'si-2023-02', year: 2023, status: 'published', title: 'Machine Learning in Environmental Science', desc: 'Applications of machine learning techniques in climate modeling, pollution monitoring, and environmental conservation efforts.', date: 'Oct 2023', articles: 9, gradient: 'from-amber-500 to-orange-600' },
+            { id: 'si-2023-01', year: 2023, status: 'published', title: 'Blockchain Technology in Supply Chain Management', desc: 'Exploring blockchain-based solutions for transparency, traceability, and efficiency in global supply chain operations.', date: 'Apr 2023', articles: 7, gradient: 'from-rose-500 to-red-600' },
+        ];
+
+        const ITEMS_PER_PAGE = 3;
+        let currentPage = 1;
+        let filtered = [...allIssues];
+
+        function getStatusBadge(status) {
+            return status === 'open'
+                ? '<span class="px-3 py-1 text-xs font-semibold bg-green-100 text-green-700 rounded-full">Open for Submission</span>'
+                : '<span class="px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded-full">Published</span>';
+        }
+
+        function renderCard(issue) {
+            return `<a href="special-issue-detail.html?id=${issue.id}" class="issue-card block bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <div class="h-2 bg-gradient-to-r ${issue.gradient}"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">${getStatusBadge(issue.status)}</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">${issue.title}</h3>
+                    <p class="text-sm text-gray-500 mb-4 line-clamp-3">${issue.desc}</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>${issue.date}</span>
+                        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>${issue.articles} Articles</span>
+                    </div>
+                </div>
+            </a>`;
+        }
+
+        function render() {
+            const container = document.getElementById('issues-container');
+            const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+            if (currentPage > totalPages) currentPage = totalPages;
+            const start = (currentPage - 1) * ITEMS_PER_PAGE;
+            const pageItems = filtered.slice(start, start + ITEMS_PER_PAGE);
+
+            // Group by year
+            const grouped = {};
+            pageItems.forEach(i => { (grouped[i.year] = grouped[i.year] || []).push(i); });
+
+            let html = '';
+            Object.keys(grouped).sort((a,b) => b - a).forEach(year => {
+                const items = grouped[year];
+                html += `<div class="mb-16">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="year-badge text-white text-lg font-bold px-6 py-2 rounded-full shadow-md">${year}</span>
+                        <div class="flex-1 h-px bg-gray-200"></div>
+                        <span class="text-sm text-gray-500 font-medium">${items.length} Special Issue${items.length > 1 ? 's' : ''}</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">${items.map(renderCard).join('')}</div>
+                </div>`;
+            });
+
+            if (filtered.length === 0) {
+                html = '<div class="text-center py-16"><div class="text-6xl mb-4">📄</div><h3 class="text-2xl font-semibold mb-2 text-gray-800">No special issues found</h3><p class="text-gray-500">Try adjusting your search or filters.</p></div>';
+            }
+            container.innerHTML = html;
+
+            // Update count & pagination
+            document.getElementById('filter-count').textContent = `Showing ${filtered.length} of ${allIssues.length} special issues`;
+            document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
+
+            // Build pagination
+            const pc = document.getElementById('pagination-controls');
+            let phtml = '';
+            const btnBase = 'px-3 py-2 text-sm font-medium rounded-lg transition-colors ';
+            phtml += `<button onclick="goPage(${currentPage - 1})" class="${btnBase} ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-100'}" ${currentPage === 1 ? 'disabled' : ''}>&laquo; Prev</button>`;
+            for (let p = 1; p <= totalPages; p++) {
+                phtml += `<button onclick="goPage(${p})" class="${btnBase} ${p === currentPage ? 'bg-blue-800 text-white' : 'text-gray-700 hover:bg-gray-100'}">${p}</button>`;
+            }
+            phtml += `<button onclick="goPage(${currentPage + 1})" class="${btnBase} ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-100'}" ${currentPage === totalPages ? 'disabled' : ''}>Next &raquo;</button>`;
+            pc.innerHTML = phtml;
+            document.getElementById('pagination-wrapper').style.display = totalPages <= 1 ? 'none' : '';
+        }
+
+        function goPage(p) { const tp = Math.ceil(filtered.length / ITEMS_PER_PAGE); if (p >= 1 && p <= tp) { currentPage = p; render(); window.scrollTo({top: document.getElementById('issues-listing').offsetTop - 80, behavior: 'smooth'}); } }
+
+        function applyFilters() {
+            const search = document.getElementById('filter-search').value.toLowerCase();
+            const year = document.getElementById('filter-year').value;
+            const status = document.getElementById('filter-status').value;
+            filtered = allIssues.filter(i => {
+                if (search && !i.title.toLowerCase().includes(search) && !i.desc.toLowerCase().includes(search)) return false;
+                if (year !== 'all' && i.year.toString() !== year) return false;
+                if (status !== 'all' && i.status !== status) return false;
+                return true;
+            });
+            currentPage = 1;
+            render();
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const hasNews = true;
             const newsBanner = document.getElementById('news-banner');
@@ -342,6 +360,19 @@
                     if (target && arrow) { target.classList.toggle('hidden'); arrow.classList.toggle('rotate-180'); }
                 });
             });
+
+            document.getElementById('btn-filter').addEventListener('click', applyFilters);
+            document.getElementById('btn-reset').addEventListener('click', function() {
+                document.getElementById('filter-search').value = '';
+                document.getElementById('filter-year').value = 'all';
+                document.getElementById('filter-status').value = 'all';
+                filtered = [...allIssues];
+                currentPage = 1;
+                render();
+            });
+            document.getElementById('filter-search').addEventListener('keypress', function(e) { if (e.key === 'Enter') applyFilters(); });
+
+            render();
         });
     </script>
 </body>
