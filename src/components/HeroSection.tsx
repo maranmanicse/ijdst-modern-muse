@@ -8,10 +8,15 @@ const HeroSection = () => {
         <div className="text-center">
           
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-sm font-medium mb-8 text-blue-800">
+          <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-sm font-medium mb-4 text-blue-800">
             <Award className="w-4 h-4 mr-2" />
             Peer-Reviewed • Open Access • Multidisciplinary
           </div>
+
+          {/* Established Year */}
+          <p className="text-sm md:text-base font-semibold tracking-widest uppercase text-blue-800 mb-6">
+            Established 2015
+          </p>
 
           {/* Main Title */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-800">
