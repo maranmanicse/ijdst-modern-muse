@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Member Dashboard - IJDST</title>
+    <meta name="description" content="Board Member dashboard for IJDST. View membership details and download your certificate.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="bg-orange-500 text-white py-2 px-4 text-center text-sm font-medium">📢 News Update: Call For Paper Volume IJDST Invites Paper From Various Scientific Research management, medical, Science, Engineering, Arts..</div>
+
+    <nav class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center">
+                    <div class="w-9 h-9 bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <div class="ml-2.5"><div class="text-sm font-bold text-blue-900 leading-tight">IJDST</div><div class="text-xs text-gray-500 leading-tight">Board Member Portal</div></div>
+                </a>
+                <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2 pl-3 border-l border-gray-200">
+                        <div id="bAvatar" class="w-9 h-9 rounded-full bg-amber-100 text-amber-700 font-bold flex items-center justify-center">M</div>
+                        <div class="hidden sm:block"><div id="mName" class="text-sm font-semibold text-gray-900">Member</div><div id="mId" class="text-xs text-gray-500">IJDST-BM-1024</div></div>
+                    </div>
+                    <button id="bLogout" class="ml-2 px-3 py-1.5 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Welcome Banner -->
+        <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900 text-white p-6 md:p-8">
+            <div class="absolute inset-0 opacity-10"><div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #f59e0b 1px, transparent 1px), radial-gradient(circle at 75% 75%, #60a5fa 1px, transparent 1px); background-size: 40px 40px;"></div></div>
+            <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/40 text-amber-200 px-3 py-1 rounded-full text-xs font-medium mb-3">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/></svg>
+                        Active Member
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold mb-1">Welcome, <span id="welcomeName">Member</span></h1>
+                    <p class="text-blue-200 text-sm">Your editorial membership is in good standing. Download your certificate anytime.</p>
+                </div>
+                <a href="board-certificate.html" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg shadow">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+                    Download Certificate
+                </a>
+            </div>
+        </section>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+
+            <!-- Profile -->
+            <section class="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+                <h2 class="text-lg font-bold text-blue-900 mb-5">Profile & Membership</h2>
+                <div class="flex items-start gap-5 mb-6">
+                    <div id="bigAvatar" class="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-white text-3xl font-bold flex items-center justify-center shadow">M</div>
+                    <div class="flex-1">
+                        <div id="profileName" class="text-xl font-bold text-gray-900">Dr. Ananya Sharma</div>
+                        <div class="text-sm text-gray-600">Editorial Board Member · Reviewer</div>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-2.5 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full">Active</span>
+                            <span class="px-2.5 py-1 text-xs font-medium bg-blue-100 text-blue-700 rounded-full">Computer Science</span>
+                            <span class="px-2.5 py-1 text-xs font-medium bg-amber-100 text-amber-700 rounded-full">Term: 3 years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <dl class="grid sm:grid-cols-2 gap-4 text-sm">
+                    <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                        <dt class="text-xs text-gray-500 uppercase">Membership ID</dt>
+                        <dd id="dId" class="font-semibold text-gray-900 mt-1">IJDST-BM-1024</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                        <dt class="text-xs text-gray-500 uppercase">Email</dt>
+                        <dd id="dEmail" class="font-semibold text-gray-900 mt-1">a.sharma@univ.edu</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                        <dt class="text-xs text-gray-500 uppercase">Designation</dt>
+                        <dd class="font-semibold text-gray-900 mt-1">Associate Editor</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                        <dt class="text-xs text-gray-500 uppercase">Affiliation</dt>
+                        <dd class="font-semibold text-gray-900 mt-1">Indian Institute of Technology</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                        <dt class="text-xs text-gray-500 uppercase">Date of Joining</dt>
+                        <dd class="font-semibold text-gray-900 mt-1">15 March, 2024</dd>
+                    </div>
+                    <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                        <dt class="text-xs text-gray-500 uppercase">Renewal Due</dt>
+                        <dd class="font-semibold text-gray-900 mt-1">15 March, 2027</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <!-- Certificate Card -->
+            <section class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+                <h2 class="text-lg font-bold text-blue-900 mb-4">Official Certificate</h2>
+                <div class="relative rounded-xl border-2 border-dashed border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50 p-5 text-center">
+                    <div class="w-14 h-14 mx-auto bg-amber-500 rounded-full flex items-center justify-center shadow mb-3">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L9 9H2l5.5 4-2 7L12 16l6.5 4-2-7L22 9h-7z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-blue-900">Board Member Certificate</h3>
+                    <p class="text-xs text-gray-600 mt-1 mb-4">Auto-generated with QR verification.</p>
+                    <a href="board-certificate.html" class="block w-full px-4 py-2.5 bg-blue-800 hover:bg-blue-900 text-white text-sm font-medium rounded-lg mb-2">Preview & Download</a>
+                    <button onclick="alert('Certificate URL copied to clipboard (demo)')" class="block w-full px-4 py-2 border border-blue-700 text-blue-700 hover:bg-blue-50 text-sm font-medium rounded-lg">Share Verify Link</button>
+                </div>
+
+                <h3 class="font-semibold text-gray-700 text-sm mt-6 mb-2">Download History</h3>
+                <ul class="space-y-2 text-sm" id="histList">
+                    <li class="flex items-center justify-between p-2.5 rounded-lg bg-gray-50"><span class="text-gray-700">Certificate v1.2</span><span class="text-xs text-gray-500">12 Apr 2026</span></li>
+                    <li class="flex items-center justify-between p-2.5 rounded-lg bg-gray-50"><span class="text-gray-700">Certificate v1.1</span><span class="text-xs text-gray-500">03 Jan 2026</span></li>
+                    <li class="flex items-center justify-between p-2.5 rounded-lg bg-gray-50"><span class="text-gray-700">Certificate v1.0</span><span class="text-xs text-gray-500">18 Mar 2024</span></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-blue-900 text-white mt-8"><div class="max-w-7xl mx-auto px-4 py-8 text-center text-sm text-blue-300">© 2026 IJDST. All rights reserved.</div></footer>
+
+    <script>
+        let m = {id:'IJDST-BM-1024', name:'Dr. Ananya Sharma', email:'a.sharma@univ.edu'};
+        try{ const s=sessionStorage.getItem('ijdst_member'); if(s){ const o=JSON.parse(s); if(o.id) m.id=o.id; } }catch(e){}
+        document.getElementById('mId').textContent = m.id;
+        document.getElementById('dId').textContent = m.id;
+        document.getElementById('mName').textContent = m.name;
+        document.getElementById('welcomeName').textContent = m.name.split(' ').slice(-1)[0];
+        document.getElementById('profileName').textContent = m.name;
+        document.getElementById('dEmail').textContent = m.email;
+        const init = m.name.split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase();
+        document.getElementById('bAvatar').textContent = init;
+        document.getElementById('bigAvatar').textContent = init;
+        document.getElementById('bLogout').addEventListener('click', ()=>{ sessionStorage.removeItem('ijdst_member'); location.href='board-login.html'; });
+    </script>
+</body>
+</html>
