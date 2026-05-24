@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Member Certificate - IJDST</title>
+    <meta name="description" content="Preview and download your official IJDST Editorial Board Member certificate.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif { font-family: 'Cormorant Garamond', serif; }
+        /* Certificate fixed aspect for clean PDF rendering */
+        .cert {
+            width: 1000px;
+            height: 707px; /* A4 landscape ratio */
+            background:
+              radial-gradient(circle at 0% 0%, rgba(245,158,11,0.08), transparent 40%),
+              radial-gradient(circle at 100% 100%, rgba(30,58,138,0.08), transparent 40%),
+              #fffdf7;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .cert::before {
+            content:''; position:absolute; inset:18px;
+            border: 2px solid #c9a14a;
+            border-radius: 6px;
+            pointer-events:none;
+        }
+        .cert::after {
+            content:''; position:absolute; inset:28px;
+            border: 1px solid #e0b96a;
+            border-radius: 4px;
+            pointer-events:none;
+        }
+        .corner {
+            position:absolute; width:60px; height:60px;
+            border: 3px solid #1e3a8a;
+        }
+        .seal {
+            background: radial-gradient(circle, #f59e0b 0%, #b45309 100%);
+            box-shadow: 0 6px 16px rgba(180,83,9,0.4);
+        }
+        .scale-wrap {
+            transform-origin: top center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Top bar -->
+    <header class="bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="board-dashboard.html" class="flex items-center gap-2 text-sm font-medium text-blue-700 hover:text-blue-900">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    Back to Dashboard
+                </a>
+                <div class="flex items-center gap-2">
+                    <button id="printBtn" class="px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50 rounded-lg flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                        Print
+                    </button>
+                    <button id="downloadBtn" class="px-4 py-2 text-sm font-semibold bg-amber-500 hover:bg-amber-600 text-white rounded-lg flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-[1100px] mx-auto px-4 py-8">
+        <div class="mb-6 text-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-blue-900">Certificate Preview</h1>
+            <p class="text-gray-600 text-sm mt-1">Review the details below. Click Download PDF to save your official certificate.</p>
+        </div>
+
+        <!-- Scale wrapper for responsive preview -->
+        <div id="scaleWrap" class="scale-wrap mx-auto" style="width:1000px;">
+            <div id="cert" class="cert mx-auto">
+                <!-- Corner accents -->
+                <div class="corner" style="top:40px;left:40px;border-right:none;border-bottom:none"></div>
+                <div class="corner" style="top:40px;right:40px;border-left:none;border-bottom:none"></div>
+                <div class="corner" style="bottom:40px;left:40px;border-right:none;border-top:none"></div>
+                <div class="corner" style="bottom:40px;right:40px;border-left:none;border-top:none"></div>
+
+                <!-- Header -->
+                <div class="relative pt-14 px-20 text-center">
+                    <div class="flex items-center justify-center gap-4 mb-3">
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-blue-900 font-bold text-lg leading-tight">International Journal For</div>
+                            <div class="text-blue-900 font-bold text-lg leading-tight">Development Of Science & Technology</div>
+                            <div class="text-xs text-amber-700 font-semibold mt-0.5">ISSN: 2456-8503 · Est. 2015</div>
+                        </div>
+                    </div>
+
+                    <div class="serif text-5xl font-bold text-blue-900 mt-6 tracking-wide">Certificate of Membership</div>
+                    <div class="mt-2 flex items-center justify-center gap-3">
+                        <span class="h-px w-16 bg-amber-500"></span>
+                        <span class="text-amber-700 text-xs uppercase tracking-[0.3em] font-semibold">Editorial Board</span>
+                        <span class="h-px w-16 bg-amber-500"></span>
+                    </div>
+
+                    <p class="serif text-lg text-gray-700 mt-8">This is to certify that</p>
+                    <div class="serif text-4xl font-semibold text-blue-900 mt-3" id="cName">Dr. Ananya Sharma</div>
+                    <div class="h-px w-80 bg-gray-300 mx-auto mt-3"></div>
+
+                    <p class="serif text-base text-gray-700 mt-5 max-w-[700px] mx-auto leading-relaxed">
+                        has been duly appointed as <span id="cDesg" class="font-semibold text-blue-900">Associate Editor</span> of the
+                        <span class="font-semibold text-blue-900">International Journal for Development of Science & Technology (IJDST)</span>,
+                        in recognition of distinguished academic contribution and commitment to advancing scholarly research.
+                    </p>
+                </div>
+
+                <!-- Footer details -->
+                <div class="absolute left-20 right-20 bottom-20 flex items-end justify-between">
+                    <!-- Left: signature -->
+                    <div class="text-center">
+                        <div class="serif text-2xl text-blue-900 italic" style="font-family:'Cormorant Garamond',serif">Dr. R. K. Verma</div>
+                        <div class="h-px w-44 bg-gray-400 mt-1"></div>
+                        <div class="text-xs text-gray-600 mt-1 uppercase tracking-wider">Editor-in-Chief</div>
+                    </div>
+
+                    <!-- Center: seal -->
+                    <div class="text-center">
+                        <div class="seal w-20 h-20 rounded-full mx-auto flex items-center justify-center text-white">
+                            <div class="text-center">
+                                <div class="text-[9px] font-bold tracking-wider">IJDST</div>
+                                <div class="text-[7px]">OFFICIAL</div>
+                                <div class="text-[7px]">SEAL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: QR -->
+                    <div class="text-center">
+                        <div id="qr" class="w-20 h-20 bg-white p-1 border border-gray-300 rounded mx-auto"></div>
+                        <div class="text-[10px] text-gray-600 mt-1 font-mono" id="cVerifyId">VER-IJDST-BM-1024</div>
+                        <div class="text-[9px] text-gray-500">Scan to verify</div>
+                    </div>
+                </div>
+
+                <!-- Membership meta -->
+                <div class="absolute left-20 right-20 bottom-44 grid grid-cols-3 gap-4 text-center text-xs">
+                    <div>
+                        <div class="text-gray-500 uppercase tracking-wider">Membership ID</div>
+                        <div class="font-semibold text-blue-900 mt-0.5" id="cMid">IJDST-BM-1024</div>
+                    </div>
+                    <div>
+                        <div class="text-gray-500 uppercase tracking-wider">Date of Joining</div>
+                        <div class="font-semibold text-blue-900 mt-0.5" id="cJoin">15 March, 2024</div>
+                    </div>
+                    <div>
+                        <div class="text-gray-500 uppercase tracking-wider">Valid Through</div>
+                        <div class="font-semibold text-blue-900 mt-0.5" id="cValid">15 March, 2027</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="mt-8 bg-white border border-gray-100 rounded-2xl p-5 max-w-2xl mx-auto text-sm text-gray-700">
+            <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+                </div>
+                <div>
+                    <div class="font-semibold text-blue-900 mb-1">About this certificate</div>
+                    <p class="text-xs text-gray-600 leading-relaxed">The certificate includes a unique verification ID and QR code linking back to IJDST for authenticity verification. Demo mode — final issuance will be cryptographically signed and watermarked.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <a href="board-dashboard.html" class="text-sm text-blue-700 hover:text-blue-900 font-medium">← Back to Dashboard</a>
+        </div>
+    </main>
+
+    <script>
+        // Hydrate from session
+        let m = {id:'IJDST-BM-1024', name:'Dr. Ananya Sharma'};
+        try{ const s=sessionStorage.getItem('ijdst_member'); if(s){ const o=JSON.parse(s); if(o.id) m.id=o.id; } }catch(e){}
+        document.getElementById('cName').textContent = m.name;
+        document.getElementById('cMid').textContent = m.id;
+        document.getElementById('cVerifyId').textContent = 'VER-' + m.id;
+
+        // QR
+        new QRCode(document.getElementById('qr'), {
+            text: 'https://ijdst.com/verify/' + m.id,
+            width: 76, height: 76,
+            colorDark : '#1e3a8a', colorLight : '#ffffff'
+        });
+
+        // Responsive scale
+        function rescale(){
+            const wrap = document.getElementById('scaleWrap');
+            const available = Math.min(window.innerWidth - 32, 1000);
+            const scale = available / 1000;
+            wrap.style.transform = `scale(${scale})`;
+            wrap.style.height = (707 * scale) + 'px';
+        }
+        rescale(); window.addEventListener('resize', rescale);
+
+        // Print
+        document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+        // Download PDF
+        document.getElementById('downloadBtn').addEventListener('click', async ()=>{
+            const btn = document.getElementById('downloadBtn');
+            const orig = btn.innerHTML;
+            btn.disabled = true; btn.innerHTML = 'Generating...';
+            try {
+                const cert = document.getElementById('cert');
+                const canvas = await html2canvas(cert, {scale:2, backgroundColor:'#fffdf7', useCORS:true});
+                const img = canvas.toDataURL('image/png');
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({orientation:'landscape', unit:'mm', format:'a4'});
+                const pw = pdf.internal.pageSize.getWidth();
+                const ph = pdf.internal.pageSize.getHeight();
+                pdf.addImage(img, 'PNG', 0, 0, pw, ph);
+                pdf.save(`IJDST-Certificate-${m.id}.pdf`);
+            } catch(e){
+                alert('Could not generate PDF: ' + e.message);
+            } finally {
+                btn.disabled = false; btn.innerHTML = orig;
+            }
+        });
+    </script>
+</body>
+</html>
