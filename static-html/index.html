@@ -795,5 +795,63 @@
             });
         });
     </script>
+
+    <!-- Swiper + AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Year
+        var y = document.getElementById('footer-year');
+        if (y) y.textContent = new Date().getFullYear();
+
+        // AOS
+        if (window.AOS) AOS.init({ duration: 600, once: true, offset: 60, easing: 'ease-out-cubic' });
+
+        // Featured slider
+        if (window.Swiper) {
+          new Swiper('.featured-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: true,
+            autoplay: { delay: 4500, disableOnInteraction: false },
+            pagination: { el: '.featured-swiper .swiper-pagination', clickable: true },
+            navigation: { nextEl: '.featured-swiper .swiper-button-next', prevEl: '.featured-swiper .swiper-button-prev' },
+            breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+          });
+          new Swiper('.testimonial-swiper', {
+            slidesPerView: 1,
+            loop: true,
+            autoplay: { delay: 5500, disableOnInteraction: false },
+            pagination: { el: '.testimonial-swiper .swiper-pagination', clickable: true }
+          });
+        }
+
+        // Animated counters
+        var counters = document.querySelectorAll('.counter');
+        var animate = function (el) {
+          var target = +el.getAttribute('data-target') || 0;
+          var dur = 1400, start = performance.now();
+          var step = function (now) {
+            var p = Math.min((now - start) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.floor(eased * target).toLocaleString();
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = target.toLocaleString();
+          };
+          requestAnimationFrame(step);
+        };
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
+            });
+          }, { threshold: 0.4 });
+          counters.forEach(function (c) { io.observe(c); });
+        } else {
+          counters.forEach(animate);
+        }
+      });
+    </script>
 </body>
 </html>
