@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Members · Journal Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><div class="logo">J</div><h1>Journal Admin</h1></div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="users.html"><i class="fa-solid fa-users"></i> Users</a>
+      <a href="certificates.html"><i class="fa-solid fa-award"></i> Certificates</a>
+      <a href="notifications.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="av">AK</div>
+      <div><div class="nm">Arjun Kapoor</div><span class="rl">Super Admin</span></div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="ham" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="page-title">Members</h1>
+      <div class="search"><i class="fa-solid fa-search"></i><input type="search" placeholder="Search..."></div>
+      <div class="spacer"></div>
+      <button class="bell" aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="badge">3</span></button>
+      <div class="user-menu">
+        <div class="av">AK</div>
+        <div class="dd">
+          <a href="profile.html"><i class="fa-regular fa-user"></i> View Profile</a>
+          <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="page-head">
+        <div><h2>Members Management</h2><div class="sub">View, edit and manage all registered members</div></div>
+        <button id="u-add" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add New Member</button>
+      </div>
+
+      <div class="filters">
+        <input id="u-search" class="grow" type="search" placeholder="Search members by name, email or field...">
+        <select id="u-role"><option value="">All Roles</option><option>Author</option><option>Reviewer</option><option>Editor</option><option>Reader</option></select>
+        <select id="u-status"><option value="">All Statuses</option><option>Active</option><option>Pending</option><option>Suspended</option></select>
+        <button id="u-export" class="btn btn-secondary"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+      </div>
+
+      <div class="bulk-bar" id="bulk-bar">
+        <span class="ct">0 selected</span>
+        <button id="bulk-suspend" class="btn btn-secondary btn-sm"><i class="fa-solid fa-pause"></i> Suspend Selected</button>
+        <button id="bulk-delete" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete Selected</button>
+      </div>
+
+      <div class="table-card">
+        <div class="table-wrap"><table class="tbl" id="users-table">
+          <thead><tr>
+            <th style="width:36px"><input type="checkbox" id="u-checkall" aria-label="Select all"></th>
+            <th>#</th><th>Name</th><th>Email</th><th>Role</th><th>Field</th><th>Joined</th><th>Status</th><th>Actions</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table></div>
+        <div class="pag" id="u-pag"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Add/Edit Modal -->
+<div class="modal" id="u-modal">
+  <div class="box">
+    <div class="mh"><h3 id="u-modal-title">Add New Member</h3><button class="x" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button></div>
+    <form id="u-form">
+      <div class="mb">
+        <div class="form-grid">
+          <div class="field"><label>Full Name *</label><input name="name" required></div>
+          <div class="field"><label>Email *</label><input name="email" type="email" required></div>
+          <div class="field"><label>Phone Number</label><input name="phone"></div>
+          <div class="field"><label>Role</label><select name="role"><option>Author</option><option>Reviewer</option><option>Editor</option><option>Reader</option></select></div>
+          <div class="field"><label>Field / Subject Area</label><input name="field"></div>
+          <div class="field"><label>Profile Photo URL</label><input name="photo" placeholder="https://..."></div>
+          <div class="field field-full"><label style="display:flex;justify-content:space-between;align-items:center">Status <label class="tgl"><input type="checkbox" name="activeStatus"><span class="sl"></span></label></label><small style="color:var(--text-secondary)">Toggle on = Active, off = Pending</small></div>
+          <div class="field field-full"><label>Bio</label><textarea name="bio" rows="3"></textarea></div>
+        </div>
+      </div>
+      <div class="mf">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Member</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- View Drawer -->
+<div class="drawer" id="view-drawer">
+  <div class="panel">
+    <div class="dh"><h3>Member Details</h3><button class="x" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="db">
+      <div style="text-align:center">
+        <div class="av-lg" id="dr-av"></div>
+        <h3 id="dr-name" style="margin:0 0 6px"></h3>
+        <div id="dr-role"></div>
+      </div>
+      <div id="dr-body" style="margin-top:20px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal" id="del-modal">
+  <div class="box" style="max-width:420px">
+    <div class="mh"><h3>Confirm Delete</h3><button class="x" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="mb"><p>Are you sure you want to remove <strong id="del-name"></strong>? This action cannot be undone.</p></div>
+    <div class="mf">
+      <button class="btn btn-secondary" data-close>Cancel</button>
+      <button id="del-confirm" class="btn btn-danger">Confirm Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

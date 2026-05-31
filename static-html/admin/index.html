@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard · Journal Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><div class="logo">J</div><h1>Journal Admin</h1></div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="users.html"><i class="fa-solid fa-users"></i> Users</a>
+      <a href="certificates.html"><i class="fa-solid fa-award"></i> Certificates</a>
+      <a href="notifications.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="av">AK</div>
+      <div><div class="nm">Arjun Kapoor</div><span class="rl">Super Admin</span></div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button class="ham" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="page-title">Dashboard</h1>
+      <div class="search"><i class="fa-solid fa-search"></i><input type="search" placeholder="Search anything..."></div>
+      <div class="spacer"></div>
+      <button class="bell" aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="badge">3</span></button>
+      <div class="user-menu">
+        <div class="av" aria-label="Account">AK</div>
+        <div class="dd">
+          <a href="profile.html"><i class="fa-regular fa-user"></i> View Profile</a>
+          <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- STATS -->
+      <div class="stats">
+        <div class="stat"><div class="ic bg-info"><i class="fa-solid fa-book"></i></div>
+          <div><div class="lb">Total Journals</div><div class="num">1,248</div><div class="ch up"><i class="fa-solid fa-arrow-up"></i> 12.4%</div></div></div>
+        <div class="stat"><div class="ic bg-success"><i class="fa-solid fa-users"></i></div>
+          <div><div class="lb">Total Members</div><div class="num">5,672</div><div class="ch up"><i class="fa-solid fa-arrow-up"></i> 8.1%</div></div></div>
+        <div class="stat"><div class="ic bg-warning"><i class="fa-solid fa-award"></i></div>
+          <div><div class="lb">Certificates Issued</div><div class="num">892</div><div class="ch up"><i class="fa-solid fa-arrow-up"></i> 24.3%</div></div></div>
+        <div class="stat"><div class="ic bg-danger"><i class="fa-solid fa-bell"></i></div>
+          <div><div class="lb">Pending Notifications</div><div class="num">17</div><div class="ch dn"><i class="fa-solid fa-arrow-down"></i> 3.2%</div></div></div>
+      </div>
+
+      <!-- CHARTS -->
+      <div class="charts">
+        <div class="chart-card"><h3>Journal Submissions — Last 6 Months</h3><div class="canvas-wrap"><canvas id="chartLine"></canvas></div></div>
+        <div class="chart-card"><h3>Member Roles Breakdown</h3><div class="canvas-wrap"><canvas id="chartDoughnut"></canvas></div></div>
+      </div>
+
+      <!-- RECENT MEMBERS -->
+      <div class="table-card" style="margin-bottom:20px">
+        <div class="table-head"><h3>Recent Members</h3><a href="users.html" class="btn btn-secondary btn-sm">View all</a></div>
+        <div class="table-wrap"><table class="tbl" id="dash-members">
+          <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+      </div>
+
+      <!-- RECENT CERTIFICATES -->
+      <div class="table-card">
+        <div class="table-head"><h3>Recent Certificates</h3><a href="certificates.html" class="btn btn-secondary btn-sm">Manage</a></div>
+        <div class="table-wrap"><table class="tbl" id="dash-certs">
+          <thead><tr><th>Certificate ID</th><th>Recipient</th><th>Template</th><th>Issued</th><th>Actions</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
