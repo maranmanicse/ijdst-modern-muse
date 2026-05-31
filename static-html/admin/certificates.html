@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Certificates · Journal Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><div class="logo">J</div><h1>Journal Admin</h1></div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="users.html"><i class="fa-solid fa-users"></i> Users</a>
+      <a href="certificates.html"><i class="fa-solid fa-award"></i> Certificates</a>
+      <a href="notifications.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+    <div class="sidebar-foot"><div class="av">AK</div><div><div class="nm">Arjun Kapoor</div><span class="rl">Super Admin</span></div></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="ham" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="page-title">Certificate Templates</h1>
+      <div class="search"><i class="fa-solid fa-search"></i><input type="search" placeholder="Search..."></div>
+      <div class="spacer"></div>
+      <button class="bell" aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="badge">3</span></button>
+      <div class="user-menu">
+        <div class="av">AK</div>
+        <div class="dd"><a href="profile.html"><i class="fa-regular fa-user"></i> View Profile</a><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="page-head">
+        <div><h2>Certificate Templates</h2><div class="sub">Design and manage certificate templates</div></div>
+        <button id="c-add" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Create New Template</button>
+      </div>
+
+      <div class="filters">
+        <input id="c-search" class="grow" type="search" placeholder="Search templates...">
+        <select id="c-cat"><option value="">All Categories</option><option>Achievement</option><option>Participation</option><option>Excellence</option><option>Publication</option></select>
+        <div class="view-toggle">
+          <button data-view="grid" class="active" aria-label="Grid view"><i class="fa-solid fa-grip"></i></button>
+          <button data-view="list" aria-label="List view"><i class="fa-solid fa-list"></i></button>
+        </div>
+      </div>
+
+      <div id="cert-area"></div>
+    </main>
+  </div>
+</div>
+
+<!-- Create/Edit Modal -->
+<div class="modal wide" id="c-modal">
+  <div class="box">
+    <div class="mh"><h3 id="c-modal-title">Create New Template</h3><button class="x" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button></div>
+    <form id="c-form">
+      <div class="mb" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div>
+          <div class="form-grid">
+            <div class="field field-full"><label>Template Name *</label><input name="name" required></div>
+            <div class="field"><label>Category</label><select name="category"><option>Achievement</option><option>Participation</option><option>Excellence</option><option>Publication</option></select></div>
+            <div class="field"><label>Date Format</label><select name="dateFormat"><option>DD/MM/YYYY</option><option>MM/DD/YYYY</option><option>YYYY-MM-DD</option><option>MMM DD, YYYY</option></select></div>
+            <div class="field field-full"><label>Certificate Title</label><input name="title" placeholder="Certificate of Achievement"></div>
+            <div class="field field-full"><label>Recipient Label</label><input name="recipientLabel" placeholder="This is awarded to"></div>
+            <div class="field field-full"><label>Body Text</label><textarea name="body" rows="3"></textarea></div>
+            <div class="field"><label>Signatory Name</label><input name="signatory"></div>
+            <div class="field"><label>Signatory Title</label><input name="signTitle"></div>
+            <div class="field"><label>Border Style</label><select name="border"><option value="classic">Classic</option><option value="modern">Modern</option><option value="minimal">Minimal</option><option value="decorative">Decorative</option></select></div>
+            <div class="field"><label>Background Pattern</label><select name="pattern"><option value="none">None</option><option value="grid">Grid</option><option value="dots">Dots</option><option value="lines">Lines</option></select></div>
+            <div class="field"><label>Primary Color</label><input name="primary" type="color" value="#1A1A2E"></div>
+            <div class="field"><label>Secondary Color</label><input name="secondary" type="color" value="#E94560"></div>
+            <div class="field field-full"><label>Logo URL</label><input name="logo" placeholder="https://..."></div>
+          </div>
+        </div>
+        <div>
+          <label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px">Live Preview</label>
+          <div class="preview-pane"><div id="c-preview" class="cert-preview b-classic"></div></div>
+          <button type="button" class="btn btn-secondary btn-block" style="margin-top:10px" onclick="showToast('Preview download coming soon','info')"><i class="fa-solid fa-download"></i> Download Preview as PNG</button>
+        </div>
+      </div>
+      <div class="mf">
+        <button type="button" class="btn btn-secondary" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Template</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal" id="cdel-modal">
+  <div class="box" style="max-width:440px">
+    <div class="mh"><h3>Delete Template</h3><button class="x" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="mb"><p>Delete <strong id="cdel-name"></strong>? This will also affect <strong id="cdel-count"></strong> issued certificates.</p></div>
+    <div class="mf">
+      <button class="btn btn-secondary" data-close>Cancel</button>
+      <button id="cdel-confirm" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

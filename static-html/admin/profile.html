@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Profile · Journal Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><div class="logo">J</div><h1>Journal Admin</h1></div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="users.html"><i class="fa-solid fa-users"></i> Users</a>
+      <a href="certificates.html"><i class="fa-solid fa-award"></i> Certificates</a>
+      <a href="notifications.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+    <div class="sidebar-foot"><div class="av">AK</div><div><div class="nm">Arjun Kapoor</div><span class="rl">Super Admin</span></div></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="ham" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="page-title">My Profile</h1>
+      <div class="search"><i class="fa-solid fa-search"></i><input type="search" placeholder="Search..."></div>
+      <div class="spacer"></div>
+      <button class="bell" aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="badge">3</span></button>
+      <div class="user-menu">
+        <div class="av">AK</div>
+        <div class="dd"><a href="profile.html"><i class="fa-regular fa-user"></i> View Profile</a><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="profile-grid">
+        <!-- LEFT -->
+        <div class="profile-card">
+          <div class="profile-av">AK<div class="ov"><i class="fa-solid fa-camera"></i>&nbsp;Change Photo</div></div>
+          <h3 style="margin:8px 0 4px">Arjun Kapoor</h3>
+          <span class="badge badge-danger" style="background:rgba(233,69,96,.15);color:var(--accent)">Super Admin</span>
+          <div style="margin-top:18px;text-align:left;font-size:13px;color:var(--text-secondary);display:flex;flex-direction:column;gap:8px">
+            <div><i class="fa-regular fa-envelope" style="width:18px;color:var(--accent)"></i> arjun.kapoor@journal.com</div>
+            <div><i class="fa-solid fa-phone" style="width:18px;color:var(--accent)"></i> +91 98765 43210</div>
+            <div><i class="fa-solid fa-location-dot" style="width:18px;color:var(--accent)"></i> Mumbai, India</div>
+            <div><i class="fa-regular fa-calendar" style="width:18px;color:var(--accent)"></i> Member since Jan 2022</div>
+          </div>
+          <div class="profile-stats">
+            <div><div class="v">128</div><div class="l">Members Added</div></div>
+            <div><div class="v">342</div><div class="l">Certificates</div></div>
+            <div><div class="v">89</div><div class="l">Notifications</div></div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="card card-pad">
+          <div class="tabs">
+            <button class="active" data-tab="personal">Personal Info</button>
+            <button data-tab="security">Security</button>
+            <button data-tab="prefs">Preferences</button>
+          </div>
+
+          <!-- Personal -->
+          <div class="tab-panel active" id="tab-personal">
+            <form data-form="Profile">
+              <div class="form-grid">
+                <div class="field"><label>First Name</label><input value="Arjun"></div>
+                <div class="field"><label>Last Name</label><input value="Kapoor"></div>
+                <div class="field"><label>Email</label><input type="email" value="arjun.kapoor@journal.com"></div>
+                <div class="field"><label>Phone</label><input value="+91 98765 43210"></div>
+                <div class="field"><label>Job Title</label><input value="Editor-in-Chief"></div>
+                <div class="field"><label>Department</label><input value="Editorial"></div>
+                <div class="field field-full"><label>Bio</label><textarea rows="3">Editor with 12+ years of experience in academic publishing.</textarea></div>
+                <div class="field field-full"><label>Profile Photo URL</label><input id="p-photo" placeholder="https://..."><img id="p-photo-prev" alt="" style="display:none;margin-top:8px;width:80px;height:80px;border-radius:50%;object-fit:cover"></div>
+              </div>
+              <div style="margin-top:18px;text-align:right"><button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button></div>
+            </form>
+          </div>
+
+          <!-- Security -->
+          <div class="tab-panel" id="tab-security">
+            <form data-form="Password">
+              <div class="form-grid cols-1" style="max-width:420px">
+                <div class="field"><label>Current Password</label><input type="password"></div>
+                <div class="field"><label>New Password</label><input id="pw-new" type="password"><div class="pw-meter"><div class="bar"></div></div></div>
+                <div class="field"><label>Confirm New Password</label><input type="password"></div>
+              </div>
+              <div style="margin-top:14px"><button type="submit" class="btn btn-primary">Update Password</button></div>
+            </form>
+            <h4 style="margin:28px 0 14px;font-size:15px">Active Sessions</h4>
+            <div class="session">
+              <div class="info"><div class="d"><i class="fa-solid fa-laptop"></i> MacBook Pro · Chrome</div><div class="m">Mumbai, India · Current session</div></div>
+              <span class="badge badge-success">Active</span>
+            </div>
+            <div class="session">
+              <div class="info"><div class="d"><i class="fa-solid fa-mobile-screen"></i> iPhone 15 · Safari</div><div class="m">Mumbai, India · 2 hours ago</div></div>
+              <button class="btn btn-secondary btn-sm" data-revoke>Revoke</button>
+            </div>
+            <div class="session">
+              <div class="info"><div class="d"><i class="fa-solid fa-desktop"></i> Windows PC · Edge</div><div class="m">Delhi, India · 3 days ago</div></div>
+              <button class="btn btn-secondary btn-sm" data-revoke>Revoke</button>
+            </div>
+          </div>
+
+          <!-- Prefs -->
+          <div class="tab-panel" id="tab-prefs">
+            <form data-form="Preferences">
+              <div class="tgl-row"><span>Dark Mode</span><label class="tgl"><input type="checkbox" id="tgl-dark"><span class="sl"></span></label></div>
+              <div class="tgl-row"><span>Email Notifications</span><label class="tgl"><input type="checkbox" checked><span class="sl"></span></label></div>
+              <div class="form-grid" style="margin-top:18px">
+                <div class="field"><label>Language</label><select><option>English</option><option>Tamil</option><option>Hindi</option></select></div>
+                <div class="field"><label>Timezone</label><select><option>Asia/Kolkata (IST)</option><option>UTC</option><option>America/New_York</option><option>Europe/London</option></select></div>
+              </div>
+              <div style="margin-top:18px"><button type="submit" class="btn btn-primary">Save Preferences</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="js/admin.js"></script>
+</body>
+</html>

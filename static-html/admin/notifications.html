@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notifications · Journal Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><div class="logo">J</div><h1>Journal Admin</h1></div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="users.html"><i class="fa-solid fa-users"></i> Users</a>
+      <a href="certificates.html"><i class="fa-solid fa-award"></i> Certificates</a>
+      <a href="notifications.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+    <div class="sidebar-foot"><div class="av">AK</div><div><div class="nm">Arjun Kapoor</div><span class="rl">Super Admin</span></div></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="ham" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="page-title">Notifications</h1>
+      <div class="search"><i class="fa-solid fa-search"></i><input type="search" placeholder="Search..."></div>
+      <div class="spacer"></div>
+      <button class="bell" aria-label="Notifications"><i class="fa-regular fa-bell"></i><span class="badge">3</span></button>
+      <div class="user-menu">
+        <div class="av">AK</div>
+        <div class="dd"><a href="profile.html"><i class="fa-regular fa-user"></i> View Profile</a><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="page-head">
+        <div><h2>Notifications</h2><div class="sub">Stay updated with the latest activity</div></div>
+        <div style="display:flex;gap:8px">
+          <button id="n-readall" class="btn btn-secondary"><i class="fa-solid fa-check-double"></i> Mark All as Read</button>
+          <button id="n-clearall" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Clear All</button>
+        </div>
+      </div>
+
+      <div class="tab-pills">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="unread">Unread</button>
+        <button data-filter="system">System</button>
+        <button data-filter="member">New Members</button>
+        <button data-filter="certificate">Certificates</button>
+        <button data-filter="journal">Journal Updates</button>
+      </div>
+
+      <div id="notif-list" class="notif-list"></div>
+
+      <div class="collapsible">
+        <div class="collapsible-head">
+          <span><i class="fa-solid fa-sliders"></i> Notification Settings</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="collapsible-body">
+          <div class="tgl-row"><span>New Member Registrations</span><label class="tgl"><input type="checkbox" checked><span class="sl"></span></label></div>
+          <div class="tgl-row"><span>Certificate Issued Alerts</span><label class="tgl"><input type="checkbox" checked><span class="sl"></span></label></div>
+          <div class="tgl-row"><span>Journal Submission Alerts</span><label class="tgl"><input type="checkbox" checked><span class="sl"></span></label></div>
+          <div class="tgl-row"><span>System Maintenance Alerts</span><label class="tgl"><input type="checkbox"><span class="sl"></span></label></div>
+          <div class="tgl-row" style="border-bottom:0"><span>Weekly Summary Email</span><label class="tgl"><input type="checkbox" checked><span class="sl"></span></label></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign In · Journal Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="login-page">
+  <div class="login-left">
+    <div class="brand">
+      <h1><i class="fa-solid fa-book-open-reader" style="color:#E94560"></i> Journal Admin</h1>
+      <p>Manage members, certificates, notifications and editorial workflows — all from one elegant dashboard.</p>
+    </div>
+    <div class="feats">
+      <div><i class="fa-solid fa-circle-check"></i> Track submissions in real time</div>
+      <div><i class="fa-solid fa-circle-check"></i> Issue certificates with one click</div>
+      <div><i class="fa-solid fa-circle-check"></i> Manage editorial teams globally</div>
+    </div>
+  </div>
+  <div class="login-right">
+    <div class="login-card">
+      <h2>Welcome back</h2>
+      <p class="sub">Sign in to your admin account to continue.</p>
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="l-email">Email Address</label>
+          <div class="input-icon">
+            <i class="fa-regular fa-envelope"></i>
+            <input id="l-email" type="email" placeholder="admin@journal.com" autocomplete="email">
+          </div>
+          <span class="err">Email is required</span>
+        </div>
+        <div class="field" style="margin-top:14px">
+          <label for="l-pw">Password</label>
+          <div class="input-icon">
+            <i class="fa-solid fa-lock"></i>
+            <input id="l-pw" type="password" placeholder="••••••••" autocomplete="current-password">
+            <span class="eye" aria-label="Toggle password"><i class="fa-regular fa-eye"></i></span>
+          </div>
+          <span class="err">Password is required</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0">
+          <label style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-secondary)">
+            <input type="checkbox"> Remember me
+          </label>
+          <a href="#" style="color:var(--accent);font-size:13px;font-weight:600">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In <i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+      <p style="text-align:center;margin-top:20px;color:var(--text-secondary);font-size:13px">
+        Demo credentials: any email + password
+      </p>
+    </div>
+  </div>
+</div>
+<script src="js/admin.js"></script>
+</body>
+</html>
