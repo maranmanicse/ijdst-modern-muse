@@ -107,7 +107,49 @@
       </div>
     </div>
   </div>
-</section>
+  </section>
+
+  <!-- Image Slider -->
+  <section class="slider-section">
+    <div class="container-x">
+      <div class="slider" id="heroSlider" aria-roledescription="carousel" aria-label="Journal highlights">
+        <div class="slides">
+          <article class="slide is-active" style="background-image:url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1600&q=80')">
+            <div class="slide-overlay"></div>
+            <div class="slide-caption">
+              <span class="eyebrow"><span class="dot"></span> Call for Papers</span>
+              <h2>Volume 11 · Issue 6 now open for submissions</h2>
+              <p>Rapid peer review · DOI indexed · Open access · Global readership</p>
+              <a class="btn btn-primary" href="submission.html">Submit Manuscript <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
+            </div>
+          </article>
+          <article class="slide" style="background-image:url('https://images.unsplash.com/photo-1554475901-4538ddfbccc2?auto=format&fit=crop&w=1600&q=80')">
+            <div class="slide-overlay"></div>
+            <div class="slide-caption">
+              <span class="eyebrow"><span class="dot"></span> Indexing &amp; Recognition</span>
+              <h2>Indexed across leading global research databases</h2>
+              <p>Google Scholar · CrossRef · Semantic Scholar · OpenAlex · ROAD</p>
+              <a class="btn btn-primary" href="#indexing">Explore Indexing <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
+            </div>
+          </article>
+          <article class="slide" style="background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=80')">
+            <div class="slide-overlay"></div>
+            <div class="slide-caption">
+              <span class="eyebrow"><span class="dot"></span> For Authors</span>
+              <h2>Publish with confidence — 7 day average review</h2>
+              <p>Transparent process · Plagiarism checked · e-Certificates issued</p>
+              <a class="btn btn-primary" href="author-login.html">Author Portal <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
+            </div>
+          </article>
+        </div>
+        <button class="slider-arrow prev" type="button" aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
+        <button class="slider-arrow next" type="button" aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
+        <div class="slider-dots" role="tablist" aria-label="Slide selector"></div>
+      </div>
+    </div>
+  </section>
+
+
 
 <!-- Latest Updates Ticker -->
 <div class="ticker">
@@ -419,6 +461,40 @@
     });
   }, { threshold: 0.4 });
   counters.forEach(c => cio.observe(c));
+
+  // Hero image slider
+  (function(){
+    const slider = document.getElementById('heroSlider');
+    if (!slider) return;
+    const slides = [...slider.querySelectorAll('.slide')];
+    const dotsWrap = slider.querySelector('.slider-dots');
+    const prev = slider.querySelector('.prev');
+    const next = slider.querySelector('.next');
+    let idx = Math.max(0, slides.findIndex(s => s.classList.contains('is-active')));
+    let timer;
+    slides.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('role','tab'); b.setAttribute('aria-label', `Go to slide ${i+1}`);
+      if (i === idx) b.classList.add('is-active');
+      b.addEventListener('click', () => go(i, true));
+      dotsWrap.appendChild(b);
+    });
+    const dots = [...dotsWrap.children];
+    function go(i, user) {
+      slides[idx].classList.remove('is-active');
+      dots[idx].classList.remove('is-active');
+      idx = (i + slides.length) % slides.length;
+      slides[idx].classList.add('is-active');
+      dots[idx].classList.add('is-active');
+      if (user) restart();
+    }
+    function restart(){ clearInterval(timer); timer = setInterval(() => go(idx + 1), 6000); }
+    prev.addEventListener('click', () => go(idx - 1, true));
+    next.addEventListener('click', () => go(idx + 1, true));
+    slider.addEventListener('mouseenter', () => clearInterval(timer));
+    slider.addEventListener('mouseleave', restart);
+    restart();
+  })();
 </script>
 </body>
 </html>
