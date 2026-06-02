@@ -461,6 +461,40 @@
     });
   }, { threshold: 0.4 });
   counters.forEach(c => cio.observe(c));
+
+  // Hero image slider
+  (function(){
+    const slider = document.getElementById('heroSlider');
+    if (!slider) return;
+    const slides = [...slider.querySelectorAll('.slide')];
+    const dotsWrap = slider.querySelector('.slider-dots');
+    const prev = slider.querySelector('.prev');
+    const next = slider.querySelector('.next');
+    let idx = Math.max(0, slides.findIndex(s => s.classList.contains('is-active')));
+    let timer;
+    slides.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('role','tab'); b.setAttribute('aria-label', `Go to slide ${i+1}`);
+      if (i === idx) b.classList.add('is-active');
+      b.addEventListener('click', () => go(i, true));
+      dotsWrap.appendChild(b);
+    });
+    const dots = [...dotsWrap.children];
+    function go(i, user) {
+      slides[idx].classList.remove('is-active');
+      dots[idx].classList.remove('is-active');
+      idx = (i + slides.length) % slides.length;
+      slides[idx].classList.add('is-active');
+      dots[idx].classList.add('is-active');
+      if (user) restart();
+    }
+    function restart(){ clearInterval(timer); timer = setInterval(() => go(idx + 1), 6000); }
+    prev.addEventListener('click', () => go(idx - 1, true));
+    next.addEventListener('click', () => go(idx + 1, true));
+    slider.addEventListener('mouseenter', () => clearInterval(timer));
+    slider.addEventListener('mouseleave', restart);
+    restart();
+  })();
 </script>
 </body>
 </html>
