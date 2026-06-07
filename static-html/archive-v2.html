@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Archive — IJDST · Volume & Issue Index</title>
+<meta name="description" content="Browse the complete IJDST archive — every volume, every issue, every published paper since 2014, organised by year for fast discovery." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css" />
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<link rel="stylesheet" href="css/archive-v2.css" />
+</head>
+<body>
+
+<!-- News Banner -->
+<div id="news-banner" class="news-banner active">
+  📢 Volume 11, Issue 6 (June 2026) — Submissions close <b>25th June 2026</b>.
+</div>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="container-x">
+    <div class="left">
+      <span class="chip"><i data-lucide="book-marked" style="width:14px;height:14px"></i> ISSN: 2456-8503</span>
+      <span class="chip"><i data-lucide="badge-check" style="width:14px;height:14px"></i> Peer-Reviewed · Open Access</span>
+      <span class="chip"><i data-lucide="mail" style="width:14px;height:14px"></i> editor@ijdst.com</span>
+    </div>
+    <div style="display:flex;gap:10px">
+      <a class="btn-login" href="author-login.html"><i data-lucide="user" style="width:14px;height:14px"></i> Author Login</a>
+      <a class="btn-login" href="board-login.html"><i data-lucide="shield-check" style="width:14px;height:14px"></i> Board Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container-x row">
+    <a class="brand" href="home-v2.html">
+      <span class="brand-mark">IJ</span>
+      <span class="brand-text">
+        <strong>IJDST</strong>
+        <span>Journal of Development of Sci. & Tech.</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="home-v2.html">Home</a>
+      <a href="current-issue.html">Current Issue</a>
+      <a href="archive-v2.html" class="active">Archive</a>
+      <a href="editorial-board.html">Editorial Board</a>
+      <a href="special-issues.html">Special Issues</a>
+      <a href="call-for-paper.html">Call for Paper</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="submission.html" class="nav-cta">Submit Paper <i data-lucide="arrow-up-right" style="width:16px;height:16px"></i></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i data-lucide="menu" style="width:18px;height:18px"></i></button>
+  </div>
+</header>
+
+<!-- Archive HERO -->
+<section class="archive-hero">
+  <div class="container-x">
+    <div class="archive-crumbs">
+      <a href="home-v2.html">Home</a>
+      <span class="sep">/</span>
+      <span>Archive</span>
+    </div>
+    <h1>The complete <span class="accent">IJDST archive</span>.</h1>
+    <p class="lead">Every volume, every monthly issue, every paper — published since 2014. Browse by volume, jump straight to a year, or search any issue in seconds.</p>
+
+    <div class="archive-stats">
+      <div class="stat"><b>13</b><span>Volumes Published</span></div>
+      <div class="stat"><b>120+</b><span>Monthly Issues</span></div>
+      <div class="stat"><b>12,500+</b><span>Articles Indexed</span></div>
+      <div class="stat"><b>48</b><span>Countries Contributing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky controls -->
+<div class="archive-controls">
+  <div class="container-x">
+    <div class="bar">
+      <div class="search">
+        <i data-lucide="search" style="width:18px;height:18px"></i>
+        <input id="archSearch" type="search" placeholder="Search by volume, issue or month — e.g. Vol 11 or June 2026" aria-label="Search archive" />
+      </div>
+      <select id="archYear" aria-label="Filter by year">
+        <option value="">All Years</option>
+      </select>
+      <select id="archSort" aria-label="Sort order">
+        <option value="desc">Newest first</option>
+        <option value="asc">Oldest first</option>
+      </select>
+      <div class="view-toggle" role="tablist" aria-label="View mode">
+        <button type="button" data-view="grid" class="is-active" aria-label="Grid view"><i data-lucide="layout-grid" style="width:16px;height:16px"></i></button>
+        <button type="button" data-view="list" aria-label="List view"><i data-lucide="list" style="width:16px;height:16px"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Archive grid -->
+<section>
+  <div class="container-x">
+    <div class="archive-wrap" id="archWrap">
+      <!-- Sidebar -->
+      <aside class="year-rail" id="yearRail">
+        <h4>Quick Jump</h4>
+        <ul id="yearList"></ul>
+      </aside>
+
+      <!-- Volumes -->
+      <div id="volList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer (compact) -->
+<footer class="site-footer">
+  <div class="container-x footer-grid">
+    <div>
+      <div class="brand" style="margin-bottom:14px">
+        <span class="brand-mark">IJ</span>
+        <span class="brand-text"><strong>IJDST</strong><span>Est. 2014 · ISSN 2456-8503</span></span>
+      </div>
+      <p>Peer-reviewed, open-access, monthly multidisciplinary journal serving researchers worldwide.</p>
+    </div>
+    <div>
+      <h5>For Authors</h5>
+      <ul>
+        <li><a href="submission.html">Submit Paper</a></li>
+        <li><a href="author-login.html">Track Paper</a></li>
+        <li><a href="call-for-paper.html">Call for Paper</a></li>
+        <li><a href="publication-ethics.html">Publication Ethics</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="current-issue.html">Current Issue</a></li>
+        <li><a href="archive-v2.html">Archive</a></li>
+        <li><a href="special-issues.html">Special Issues</a></li>
+        <li><a href="editorial-board.html">Editorial Board</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li>editor@ijdst.com</li>
+        <li>Mon–Sat · 10:00–18:00 IST</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container-x footer-bot">
+    <span>© 2026 IJDST · International Journal for Development of Science & Technology</span>
+    <span>Made with care for the research community.</span>
+  </div>
+</footer>
+
+<a class="whatsapp-fixed" href="https://wa.me/" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0012.07 0C5.5 0 .14 5.34.13 11.91a11.85 11.85 0 001.6 5.95L0 24l6.27-1.65a11.94 11.94 0 005.78 1.47h.01c6.57 0 11.93-5.34 11.94-11.91a11.83 11.83 0 00-3.48-8.43zM12.06 21.3h-.01a9.9 9.9 0 01-5.04-1.38l-.36-.21-3.72.98 1-3.63-.24-.37a9.86 9.86 0 01-1.52-5.28C2.18 6.45 6.6 2.03 12.07 2.03a9.86 9.86 0 017 2.9 9.83 9.83 0 012.9 7c0 5.46-4.43 9.88-9.91 9.88z"/></svg>
+</a>
+
+<script>
+  if (window.lucide) lucide.createIcons();
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+
+  /* ---------- Archive data (mock) ---------- */
+  // Mirrors the IJIRT structure: Volume → Issues → {issue, month, year}
+  const ARCHIVE = [
+    { volume: 13, year: 2026, issues: [
+        { issue: 1, month: 'June', year: 2026, isNew: true },
+    ]},
+    { volume: 12, year: 2025, issues: [
+        { issue: 1,  month: 'June',      year: 2025 },
+        { issue: 2,  month: 'July',      year: 2025 },
+        { issue: 3,  month: 'August',    year: 2025 },
+        { issue: 4,  month: 'September', year: 2025 },
+        { issue: 5,  month: 'October',   year: 2025 },
+        { issue: 6,  month: 'November',  year: 2025 },
+        { issue: 7,  month: 'December',  year: 2025 },
+        { issue: 8,  month: 'January',   year: 2026 },
+        { issue: 9,  month: 'February',  year: 2026 },
+        { issue: 10, month: 'March',     year: 2026 },
+        { issue: 11, month: 'April',     year: 2026 },
+        { issue: 12, month: 'May',       year: 2026 },
+    ]},
+    { volume: 11, year: 2024, issues: Array.from({length: 12}, (_, i) => {
+        const months = ['June','July','August','September','October','November','December','January','February','March','April','May'];
+        const years  = [2024,2024,2024,2024,2024,2024,2024,2025,2025,2025,2025,2025];
+        return { issue: i+1, month: months[i], year: years[i] };
+    })},
+    { volume: 10, year: 2023, issues: Array.from({length: 12}, (_, i) => {
+        const months = ['June','July','August','September','October','November','December','January','February','March','April','May'];
+        const years  = [2023,2023,2023,2023,2023,2023,2023,2024,2024,2024,2024,2024];
+        return { issue: i+1, month: months[i], year: years[i] };
+    })},
+    { volume: 9, year: 2022, issues: Array.from({length: 12}, (_, i) => ({ issue: i+1, month: ['Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May'][i] + (i<7?' 2022':' 2023').slice(1), monthFull: ['June','July','August','September','October','November','December','January','February','March','April','May'][i], year: i<7?2022:2023 })).map(x => ({ issue: x.issue, month: x.monthFull, year: x.year })) },
+    { volume: 8, year: 2021, issues: Array.from({length: 12}, (_, i) => ({ issue: i+1, month: ['June','July','August','September','October','November','December','January','February','March','April','May'][i], year: i<7?2021:2022 })) },
+    { volume: 7, year: 2020, issues: Array.from({length: 12}, (_, i) => ({ issue: i+1, month: ['June','July','August','September','October','November','December','January','February','March','April','May'][i], year: i<7?2020:2021 })) },
+    { volume: 6, year: 2019, issues: Array.from({length: 12}, (_, i) => ({ issue: i+1, month: ['June','July','August','September','October','November','December','January','February','March','April','May'][i], year: i<7?2019:2020 })) },
+    { volume: 5, year: 2018, issues: Array.from({length: 12}, (_, i) => ({ issue: i+1, month: ['June','July','August','September','October','November','December','January','February','March','April','May'][i], year: i<7?2018:2019 })) },
+    { volume: 4, year: 2017, issues: Array.from({length: 12}, (_, i) => ({ issue: i+1, month: ['June','July','August','September','October','November','December','January','February','March','April','May'][i], year: i<7?2017:2018 })) },
+    { volume: 3, year: 2016, issues: Array.from({length: 12}, (_, i) => ({ issue: i+1, month: ['June','July','August','September','October','November','December','January','February','March','April','May'][i], year: i<7?2016:2017 })) },
+    { volume: 2, year: 2015, issues: Array.from({length: 12}, (_, i) => ({ issue: i+1, month: ['June','July','August','September','October','November','December','January','February','March','April','May'][i], year: i<7?2015:2016 })) },
+    { volume: 1, year: 2014, issues: Array.from({length: 12}, (_, i) => ({ issue: i+1, month: ['June','July','August','September','October','November','December','January','February','March','April','May'][i], year: i<7?2014:2015 })) },
+  ];
+
+  const volList   = document.getElementById('volList');
+  const yearList  = document.getElementById('yearList');
+  const yearSel   = document.getElementById('archYear');
+  const searchEl  = document.getElementById('archSearch');
+  const sortEl    = document.getElementById('archSort');
+  const wrap      = document.getElementById('archWrap');
+
+  // Populate year dropdown + side rail
+  const years = [...new Set(ARCHIVE.map(v => v.year))].sort((a,b) => b-a);
+  years.forEach(y => {
+    const opt = document.createElement('option'); opt.value = y; opt.textContent = y; yearSel.appendChild(opt);
+  });
+  ARCHIVE.forEach(v => {
+    const li = document.createElement('li');
+    li.innerHTML = `<a href="#vol-${v.volume}" data-vol="${v.volume}">Volume ${v.volume} <small>${v.year}</small></a>`;
+    yearList.appendChild(li);
+  });
+
+  function issueHref(v, it){
+    return `current-issue.html?volume=${v}&issue=${it.issue}&month=${encodeURIComponent(it.month + ' ' + it.year)}`;
+  }
+
+  function render(){
+    const q = searchEl.value.trim().toLowerCase();
+    const yr = yearSel.value;
+    const order = sortEl.value;
+
+    let data = ARCHIVE.slice();
+    if (yr) data = data.filter(v => String(v.year) === yr);
+    data.sort((a,b) => order === 'asc' ? a.volume - b.volume : b.volume - a.volume);
+
+    volList.innerHTML = '';
+    let anyMatch = false;
+
+    data.forEach(v => {
+      const filtered = v.issues.filter(it => {
+        if (!q) return true;
+        return (
+          `vol ${v.volume}`.includes(q) ||
+          `volume ${v.volume}`.includes(q) ||
+          `issue ${it.issue}`.includes(q) ||
+          `${it.month} ${it.year}`.toLowerCase().includes(q)
+        );
+      });
+      if (!filtered.length) return;
+      anyMatch = true;
+
+      const sec = document.createElement('section');
+      sec.className = 'vol-section';
+      sec.id = `vol-${v.volume}`;
+      sec.innerHTML = `
+        <div class="vol-head">
+          <div class="left">
+            <div class="vol-badge">V${v.volume}</div>
+            <div>
+              <h2>Volume ${v.volume}</h2>
+              <span class="meta">${v.year} – ${v.year+1} · ${filtered.length} issue${filtered.length>1?'s':''}</span>
+            </div>
+          </div>
+          <div class="right">
+            ${v.volume === Math.max(...ARCHIVE.map(x=>x.volume)) ? '<span class="pulse"></span> Current Volume' : 'Archived'}
+          </div>
+        </div>
+        <div class="issue-grid">
+          ${filtered.map(it => `
+            <a class="issue-card" href="${issueHref(v.volume, it)}">
+              <div class="row1">
+                <span>Issue ${String(it.issue).padStart(2,'0')}</span>
+                ${it.isNew ? '<span class="new">New</span>' : ''}
+              </div>
+              <h3>Issue ${it.issue}</h3>
+              <div class="when">${it.month} ${it.year}</div>
+              <div class="foot">
+                <span>View Issue</span>
+                <span class="arrow"><i data-lucide="arrow-up-right" style="width:14px;height:14px"></i></span>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+      `;
+      volList.appendChild(sec);
+    });
+
+    if (!anyMatch){
+      volList.innerHTML = `
+        <div class="archive-empty">
+          <i data-lucide="search-x" style="width:36px;height:36px;color:#94929c"></i>
+          <h3>No issues match your search.</h3>
+          <p>Try a different volume number, issue, or month.</p>
+        </div>`;
+    }
+    if (window.lucide) lucide.createIcons();
+  }
+
+  searchEl.addEventListener('input', render);
+  yearSel.addEventListener('change', render);
+  sortEl.addEventListener('change', render);
+
+  // View toggle
+  document.querySelectorAll('.view-toggle button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.view-toggle button').forEach(x => x.classList.remove('is-active'));
+      b.classList.add('is-active');
+      wrap.classList.toggle('is-list', b.dataset.view === 'list');
+    });
+  });
+
+  // Year rail active state on scroll
+  const railLinks = [...document.querySelectorAll('#yearList a')];
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){
+        const id = e.target.id;
+        railLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  render();
+  // After render, observe volume sections
+  document.querySelectorAll('.vol-section').forEach(s => io.observe(s));
+</script>
+</body>
+</html>
