@@ -144,7 +144,13 @@ function initDashboard(){
       </tr>`);
     });
   }
+  // Lightweight DataTables on dashboard previews
+  if(window.jQuery && jQuery.fn.DataTable){
+    if($('#dash-members')) jQuery('#dash-members').DataTable({paging:false,info:false,searching:false,ordering:true,order:[[3,'desc']]});
+    if($('#dash-certs'))   jQuery('#dash-certs').DataTable({paging:false,info:false,searching:false,ordering:true,order:[[3,'desc']],columnDefs:[{orderable:false,targets:[4]}]});
+  }
   // charts
+
   if(window.Chart){
     const lc=document.getElementById('chartLine');
     if(lc)new Chart(lc,{type:'line',data:{
@@ -165,13 +171,29 @@ function statusBadge(s){
   return `<span class="badge ${c}"><span class="dot" style="background:${d}"></span>${s}</span>`;
 }
 
-/* ---------- USERS PAGE ---------- */
-let usersState={data:[...MEMBERS],page:1,perPage:10,search:'',role:'',status:'',editId:null};
+let usersState={data:[...MEMBERS],editId:null};
+let usersDT=null;
 function initUsers(){
   if(!$('#users-table'))return;
-  $('#u-search').oninput=e=>{usersState.search=e.target.value.toLowerCase();usersState.page=1;renderUsers()};
-  $('#u-role').onchange=e=>{usersState.role=e.target.value;usersState.page=1;renderUsers()};
-  $('#u-status').onchange=e=>{usersState.status=e.target.value;usersState.page=1;renderUsers()};
+  // External filter for role + status (registered once)
+  if(window.jQuery && jQuery.fn.DataTable && !jQuery.fn.dataTable.ext.search.__usersFilter){
+    const fn=(settings, _data, _idx, rowData, rowIdx)=>{
+      if(settings.nTable.id!=='users-table') return true;
+      const role=document.getElementById('u-role')?.value||'';
+      const status=document.getElementById('u-status')?.value||'';
+      const tr=settings.aoData[rowIdx].nTr;
+      if(!tr) return true;
+      if(role && tr.getAttribute('data-role')!==role) return false;
+      if(status && tr.getAttribute('data-status')!==status) return false;
+      return true;
+    };
+    fn.__usersFilter=true;
+    jQuery.fn.dataTable.ext.search.push(fn);
+    jQuery.fn.dataTable.ext.search.__usersFilter=true;
+  }
+  $('#u-search').oninput=e=>{ if(usersDT) usersDT.search(e.target.value).draw(); };
+  $('#u-role').onchange=()=>usersDT&&usersDT.draw();
+  $('#u-status').onchange=()=>usersDT&&usersDT.draw();
   $('#u-add').onclick=()=>openUserModal(null);
   $('#u-export').onclick=exportCSV;
   $('#u-form').onsubmit=saveUser;
@@ -181,28 +203,18 @@ function initUsers(){
   };
   $('#bulk-suspend').onclick=()=>bulkAction('suspend');
   $('#bulk-delete').onclick=()=>bulkAction('delete');
+  // hide legacy custom pagination — DataTables now owns paging
+  const p=$('#u-pag'); if(p) p.style.display='none';
   renderUsers();
 }
-function filteredUsers(){
-  return usersState.data.filter(m=>{
-    if(usersState.search&&!(m.name+m.email+m.field).toLowerCase().includes(usersState.search))return false;
-    if(usersState.role&&m.role!==usersState.role)return false;
-    if(usersState.status&&m.status!==usersState.status)return false;
-    return true;
-  });
-}
 function renderUsers(){
-  const tb=$('#users-table tbody');tb.innerHTML='';
-  const list=filteredUsers();
-  const pages=Math.max(1,Math.ceil(list.length/usersState.perPage));
-  if(usersState.page>pages)usersState.page=pages;
-  const start=(usersState.page-1)*usersState.perPage;
-  const slice=list.slice(start,start+usersState.perPage);
-  if(!slice.length){tb.innerHTML='<tr><td colspan="9" style="text-align:center;padding:40px;color:var(--text-secondary)">No members found</td></tr>'}
-  slice.forEach((m,i)=>{
-    tb.insertAdjacentHTML('beforeend',`<tr data-id="${m.id}">
+  const tb=$('#users-table tbody');
+  if(usersDT){ usersDT.destroy(); usersDT=null; }
+  tb.innerHTML='';
+  usersState.data.forEach((m,i)=>{
+    tb.insertAdjacentHTML('beforeend',`<tr data-id="${m.id}" data-role="${m.role}" data-status="${m.status}">
       <td><input type="checkbox" class="row-chk" aria-label="Select row"></td>
-      <td>${start+i+1}</td>
+      <td>${i+1}</td>
       <td><div class="nm-cell"><span class="av-sm">${initials(m.name)}</span>${m.name}</div></td>
       <td>${m.email}</td>
       <td><span class="badge ${roleBadge(m.role)}">${m.role}</span></td>
@@ -217,16 +229,25 @@ function renderUsers(){
     </tr>`);
   });
   $$('.row-chk').forEach(c=>c.onchange=updateBulk);
-  renderPag(pages,list.length);
+  if(window.jQuery && jQuery.fn.DataTable){
+    usersDT = jQuery('#users-table').DataTable({
+      pageLength:10,
+      lengthMenu:[[10,25,50,100,-1],[10,25,50,100,'All']],
+      order:[[6,'desc']],
+      columnDefs:[
+        {orderable:false, targets:[0,8]},
+        {searchable:false, targets:[0,1,8]}
+      ],
+      dom:'<"dt-top"l>rt<"dt-bot"ip>',
+      language:{lengthMenu:'Show _MENU_ entries',info:'Showing _START_–_END_ of _TOTAL_ members',infoEmpty:'No members',infoFiltered:'(filtered from _MAX_)',paginate:{previous:'‹',next:'›'},zeroRecords:'No members match the filters'},
+      responsive:true,
+      drawCallback:()=>{ const all=$('#u-checkall'); if(all) all.checked=false; updateBulk(); }
+    });
+    const s=$('#u-search'); if(s && s.value) usersDT.search(s.value).draw();
+  }
 }
-function renderPag(pages,total){
-  const p=$('#u-pag');if(!p)return;
-  p.innerHTML=`<span style="margin-right:auto;color:var(--text-secondary);font-size:13px">${total} member${total!==1?'s':''}</span>
-    <button ${usersState.page===1?'disabled':''} onclick="goPage(${usersState.page-1})"><i class="fa-solid fa-chevron-left"></i></button>`;
-  for(let i=1;i<=pages;i++)p.innerHTML+=`<button class="${i===usersState.page?'active':''}" onclick="goPage(${i})">${i}</button>`;
-  p.innerHTML+=`<button ${usersState.page===pages?'disabled':''} onclick="goPage(${usersState.page+1})"><i class="fa-solid fa-chevron-right"></i></button>`;
-}
-function goPage(p){usersState.page=p;renderUsers()}
+function goPage(p){ if(usersDT) usersDT.page(p-1).draw('page'); }
+
 function updateBulk(){
   const sel=$$('#users-table .row-chk:checked').length;
   const bar=$('#bulk-bar');
