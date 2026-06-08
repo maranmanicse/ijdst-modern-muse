@@ -171,11 +171,6 @@ function statusBadge(s){
   return `<span class="badge ${c}"><span class="dot" style="background:${d}"></span>${s}</span>`;
 }
 
-/* ---------- USERS PAGE ---------- */
-let usersState={data:[...MEMBERS],page:1,perPage:10,search:'',role:'',status:'',editId:null};
-function initUsers(){
-  if(!$('#users-table'))return;
-/* ---------- USERS PAGE (DataTables-powered) ---------- */
 let usersState={data:[...MEMBERS],editId:null};
 let usersDT=null;
 function initUsers(){
