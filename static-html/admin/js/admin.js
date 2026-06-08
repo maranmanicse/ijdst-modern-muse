@@ -144,7 +144,13 @@ function initDashboard(){
       </tr>`);
     });
   }
+  // Lightweight DataTables on dashboard previews
+  if(window.jQuery && jQuery.fn.DataTable){
+    if($('#dash-members')) jQuery('#dash-members').DataTable({paging:false,info:false,searching:false,ordering:true,order:[[3,'desc']]});
+    if($('#dash-certs'))   jQuery('#dash-certs').DataTable({paging:false,info:false,searching:false,ordering:true,order:[[3,'desc']],columnDefs:[{orderable:false,targets:[4]}]});
+  }
   // charts
+
   if(window.Chart){
     const lc=document.getElementById('chartLine');
     if(lc)new Chart(lc,{type:'line',data:{
