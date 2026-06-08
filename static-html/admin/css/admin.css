@@ -364,3 +364,29 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
   .main{margin-left:0}
   .content{padding:0}
 }
+
+/* ===== DataTables integration ===== */
+.dataTables_wrapper{font-family:inherit;color:var(--text-primary, #1a1a2e)}
+.dt-top, .dt-bot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;flex-wrap:wrap}
+.dt-top{border-bottom:1px solid var(--border, #e2e8f0)}
+.dt-bot{border-top:1px solid var(--border, #e2e8f0);background:#fafbfc}
+.dataTables_length select{
+  padding:6px 28px 6px 10px;border:1px solid var(--border,#e2e8f0);border-radius:8px;
+  background:#fff;font-size:13px;font-weight:500;cursor:pointer;
+}
+.dataTables_info{font-size:13px;color:var(--text-secondary,#64748b)}
+.dataTables_paginate .paginate_button{
+  display:inline-block;min-width:34px;text-align:center;padding:6px 10px;margin:0 2px;
+  border:1px solid var(--border,#e2e8f0);border-radius:8px;background:#fff;color:var(--text-primary,#1a1a2e)!important;
+  font-size:13px;font-weight:600;cursor:pointer;transition:.18s ease;text-decoration:none;
+}
+.dataTables_paginate .paginate_button:hover{background:var(--accent,#E94560);color:#fff!important;border-color:var(--accent,#E94560)}
+.dataTables_paginate .paginate_button.current,
+.dataTables_paginate .paginate_button.current:hover{background:var(--accent,#E94560);color:#fff!important;border-color:var(--accent,#E94560)}
+.dataTables_paginate .paginate_button.disabled,
+.dataTables_paginate .paginate_button.disabled:hover{opacity:.4;cursor:not-allowed;background:#fff;color:var(--text-secondary,#64748b)!important}
+table.dataTable thead th{cursor:pointer;position:relative;user-select:none}
+table.dataTable thead th.sorting::after,
+table.dataTable thead th.sorting_asc::after,
+table.dataTable thead th.sorting_desc::after{opacity:.5;font-size:10px;margin-left:6px}
+table.dataTable.no-footer{border-bottom:0}
