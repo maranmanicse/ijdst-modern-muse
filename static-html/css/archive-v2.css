@@ -165,59 +165,59 @@
   background: #22c55e; box-shadow: 0 0 0 6px rgba(34,197,94,.18);
 }
 
-/* Grid of issues */
+/* Grid of issues — compact */
 .issue-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 14px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
 }
 .issue-card {
   position: relative; display: flex; flex-direction: column;
-  padding: 18px 18px 16px; border: 1px solid var(--line);
-  border-radius: 14px; background: #fff;
+  padding: 12px 12px 10px; border: 1px solid var(--line);
+  border-radius: 10px; background: #fff;
   text-decoration: none; color: inherit;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
   overflow: hidden;
 }
 .issue-card::before {
-  content: ""; position: absolute; inset: 0 auto 0 0; width: 4px;
+  content: ""; position: absolute; inset: 0 auto 0 0; width: 3px;
   background: linear-gradient(180deg, var(--accent), #e3a91a);
-  opacity: 0; transition: opacity .18s ease;
+  opacity: 0; transition: opacity .15s ease;
 }
 .issue-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: #e6dec1;
-  box-shadow: 0 16px 40px -22px rgba(20,30,60,.25);
+  box-shadow: 0 10px 24px -16px rgba(20,30,60,.25);
 }
 .issue-card:hover::before { opacity: 1; }
 .issue-card .row1 {
   display: flex; align-items: center; justify-content: space-between;
-  font-family: var(--mono); font-size: 11px; color: var(--ink-500);
-  letter-spacing: .14em; text-transform: uppercase;
+  font-family: var(--mono); font-size: 10px; color: var(--ink-500);
+  letter-spacing: .12em; text-transform: uppercase;
 }
 .issue-card .row1 .new {
   background: #fff7d6; color: #8a6900;
-  padding: 2px 8px; border-radius: 999px; font-weight: 700;
-  letter-spacing: .1em;
+  padding: 1px 6px; border-radius: 999px; font-weight: 700;
+  font-size: 9px; letter-spacing: .08em;
 }
 .issue-card h3 {
   font-family: var(--serif); font-weight: 600;
-  font-size: 22px; line-height: 1.15; letter-spacing: -.01em;
-  margin: 12px 0 6px;
+  font-size: 16px; line-height: 1.15; letter-spacing: -.01em;
+  margin: 6px 0 2px;
 }
 .issue-card .when {
-  font: 500 13px var(--sans); color: var(--ink-600);
+  font: 500 12px var(--sans); color: var(--ink-600);
 }
 .issue-card .foot {
-  margin-top: 14px; padding-top: 12px;
+  margin-top: 8px; padding-top: 8px;
   border-top: 1px dashed var(--line);
   display: flex; align-items: center; justify-content: space-between;
-  font: 600 13px var(--sans); color: var(--brand-700);
+  font: 600 11px var(--sans); color: var(--brand-700);
 }
 .issue-card .foot .arrow {
-  width: 28px; height: 28px; border-radius: 50%;
+  width: 22px; height: 22px; border-radius: 50%;
   display: grid; place-items: center;
   background: #faf6e9; color: var(--ink-900);
-  transition: background .18s, color .18s, transform .18s;
+  transition: background .15s, color .15s, transform .15s;
 }
 .issue-card:hover .foot .arrow { background: var(--accent); transform: translateX(2px); }
 
