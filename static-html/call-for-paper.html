@@ -39,63 +39,61 @@
   }
   code, pre, .mono, [class*="font-mono"] { font-family: 'JetBrains Mono', ui-monospace, monospace !important; }
 </style>
+    <!-- v2 theme -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/theme-v2.css" />
 </head>
 <body class="bg-gray-50">
-    <!-- News Banner -->
-    <div id="news-banner" class="news-banner bg-orange-500 text-white py-2 px-4 text-sm font-medium">
-        <div class="max-w-7xl mx-auto text-center">
-            <span>📢 News Update: Call For Paper Volume IJDST Invites Paper From Various Scientific Research management, medical, Science, Engineering, Arts..</span>
-        </div>
+
+<!-- News Banner -->
+<div id="news-banner" class="news-banner active">
+  📢 Call for Papers — Volume 12 Issue 7 (December 2026). Submissions close <b>25th November 2026</b>.
+</div>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="container-x">
+    <div class="left">
+      <span class="chip"><i data-lucide="book-marked" style="width:14px;height:14px"></i> ISSN: 2456-8503</span>
+      <span class="chip"><i data-lucide="badge-check" style="width:14px;height:14px"></i> Peer-Reviewed · Open Access</span>
+      <span class="chip"><i data-lucide="mail" style="width:14px;height:14px"></i> editor@ijdst.com</span>
     </div>
+    <div style="display:flex;gap:10px">
+      <a class="btn-login" href="author-login.html"><i data-lucide="user" style="width:14px;height:14px"></i> Author Login</a>
+      <a class="btn-login" href="board-login.html"><i data-lucide="shield-check" style="width:14px;height:14px"></i> Board Login</a>
+    </div>
+  </div>
+</div>
 
-    <!-- Fixed WhatsApp Button -->
-    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" rel="noopener noreferrer" class="whatsapp-fixed flex items-center gap-2 px-4 py-3 bg-green-500 hover:bg-green-600 text-white rounded-full transition-all">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        <span class="text-sm font-semibold">WhatsApp</span>
+<!-- Header -->
+<header class="site-header">
+  <div class="container-x row">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">IJ</span>
+      <span class="brand-text">
+        <strong>IJDST</strong>
+        <span>Journal of Development of Sci. &amp; Tech.</span>
+      </span>
     </a>
-
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center gap-3">
-                    <img src="https://via.placeholder.com/50" alt="IJDST Logo" class="h-12 w-12 rounded-lg">
-                    <div>
-                        <h1 class="text-xl font-bold text-gray-900">IJDST</h1>
-                        <p class="text-xs text-gray-600">ISSN: 2349-3186</p>
-                    </div>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="editorial-board.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Editorial Board</a>
-                    <a href="current-issue.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Current Issue</a>
-                    <a href="archive.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Archive</a>
-                    <a href="call-for-paper.html" class="text-blue-600 font-semibold">Call For Paper</a>
-                    <a href="submission.html" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">Submit Paper</a>
-                </div>
-
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-blue-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
-            <div class="px-4 py-3 space-y-3">
-                <a href="index.html" class="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-                <a href="editorial-board.html" class="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Editorial Board</a>
-                <a href="current-issue.html" class="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Current Issue</a>
-                <a href="archive.html" class="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Archive</a>
-                <a href="call-for-paper.html" class="block text-blue-600 font-semibold">Call For Paper</a>
-                <a href="submission.html" class="block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-center">Submit Paper</a>
-            </div>
-        </div>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="current-issue.html">Current Issue</a>
+      <a href="archive.html">Archive</a>
+      <a href="editorial-board.html">Editorial Board</a>
+      <a href="special-issues.html">Special Issues</a>
+      <a href="call-for-paper.html" class="active">Call for Paper</a>
+      <a href="contact.html">Contact</a>
     </nav>
+    <a href="submission.html" class="nav-cta">Submit Paper <i data-lucide="arrow-up-right" style="width:16px;height:16px"></i></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i data-lucide="menu" style="width:18px;height:18px"></i></button>
+  </div>
+</header>
+
+
 
     <!-- Hero Section -->
     <section class="gradient-primary text-white py-16">
@@ -327,45 +325,70 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">IJDST</h3>
-                    <p class="text-gray-400 text-sm">International Journal For Development Of Science & Technology</p>
-                    <p class="text-gray-400 text-sm mt-2">ISSN: 2349-3186</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="current-issue.html" class="hover:text-white transition-colors">Current Issue</a></li>
-                        <li><a href="archive.html" class="hover:text-white transition-colors">Archive</a></li>
-                        <li><a href="editorial-board.html" class="hover:text-white transition-colors">Editorial Board</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">For Authors</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="call-for-paper.html" class="hover:text-white transition-colors">Call For Paper</a></li>
-                        <li><a href="submission.html" class="hover:text-white transition-colors">Submit Manuscript</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Author Guidelines</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Publication Ethics</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li>Email: editor@ijdst.com</li>
-                        <li>Phone: +91 XXX XXX XXXX</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-                <p>&copy; 2025 IJDST. All rights reserved.</p>
-            </div>
+    <!-- Footer -->
+<footer class="site-footer">
+  <div class="container-x">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px">
+          <span class="brand-mark">IJ</span>
+          <span class="brand-text"><strong>IJDST</strong><span>Journal of Sci. &amp; Tech.</span></span>
+        </a>
+        <p>International peer-reviewed, open-access journal publishing multidisciplinary research since 2014. ISSN: 2456-8503.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:16px;height:16px"></i></a>
+          <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px"></i></a>
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px"></i></a>
+          <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px"></i></a>
         </div>
-    </footer>
+      </div>
+      <div>
+        <h5>For Authors</h5>
+        <ul>
+          <li><a href="submission.html">Submit Paper</a></li>
+          <li><a href="author-login.html">Track Paper</a></li>
+          <li><a href="call-for-paper.html">Call for Paper</a></li>
+          <li><a href="publication-ethics.html">Publication Ethics</a></li>
+          <li><a href="refund-cancellation-policy.html">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="current-issue.html">Current Issue</a></li>
+          <li><a href="archive.html">Archive</a></li>
+          <li><a href="special-issues.html">Special Issues</a></li>
+          <li><a href="editorial-board.html">Editorial Board</a></li>
+          <li><a href="join-board.html">Join Board</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>editor@ijdst.com</li>
+          <li>Mon–Sat · 10:00–18:00 IST</li>
+          <li><a href="contact.html">Send a message →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 IJDST · International Journal for Development of Science &amp; Technology</span>
+      <span>Made with care for the research community.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a class="whatsapp-fixed" href="https://wa.me/" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0012.07 0C5.5 0 .14 5.34.13 11.91a11.85 11.85 0 001.6 5.95L0 24l6.27-1.65a11.94 11.94 0 005.78 1.47h.01c6.57 0 11.93-5.34 11.94-11.91a11.83 11.83 0 00-3.48-8.43zM12.06 21.3h-.01a9.9 9.9 0 01-5.04-1.38l-.36-.21-3.72.98 1-3.63-.24-.37a9.86 9.86 0 01-1.52-5.28C2.18 6.45 6.6 2.03 12.07 2.03a9.86 9.86 0 017 2.9 9.83 9.83 0 012.9 7c0 5.46-4.43 9.88-9.91 9.88z"/></svg>
+</a>
+
+<script>
+  if (window.lucide) lucide.createIcons();
+  var mt = document.getElementById('menuToggle');
+  if (mt) mt.addEventListener('click', () => document.getElementById('mainNav').classList.toggle('open'));
+</script>
+
 
     <script>
         // News banner control - Set to true if news exists, false to hide
