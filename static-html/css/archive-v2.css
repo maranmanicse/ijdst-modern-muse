@@ -1,5 +1,5 @@
-/* Archive v2 — extends home-v2 design tokens */
-@import url('home-v2.css');
+/* Archive v2 — extends theme-v2 design tokens */
+@import url('theme-v2.css');
 
 /* Archive hero */
 .archive-hero {
